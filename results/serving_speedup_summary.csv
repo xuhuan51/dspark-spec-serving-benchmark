@@ -1,0 +1,4 @@
+configuration,backend,target_model,draft_model,precision,parallelism,c1_speedup,breakpoint,main_bottleneck
+qwen3_8b_bf16_single_a30,vllm,Qwen3-8B,AngelSlim-Qwen3-8B-EAGLE3,bf16,single_gpu,1.76,26,draft_overhead_and_batching_budget
+qwen3_32b_bf16_tp8,vllm,Qwen3-32B,AngelSlim-Qwen3-32B-EAGLE3,bf16,tp8,1.57,8,tp_communication_and_compute_saturation
+qwen3_32b_int4_tp4,vllm,Qwen3-32B-AWQ,AngelSlim-Qwen3-32B-EAGLE3,int4,tp4,1.43,5,quantization_reduces_decode_bottleneck
