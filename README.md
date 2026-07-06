@@ -11,6 +11,7 @@
 <p align="center">
   <a href="reports/dspark_reproduction.md">DSpark Reproduction</a> ·
   <a href="reports/serving_benchmark_report.md">Serving Benchmark</a> ·
+  <a href="reports/adaptive_policy.md">Adaptive Policy</a> ·
   <a href="reports/deployment_notes.md">Deployment Notes</a> ·
   <a href="results/serving_speedup_summary.csv">Result CSV</a>
 </p>
@@ -36,7 +37,8 @@ rules.
 | Serving benchmark | Runs OpenAI-compatible baseline/speculative endpoints with matched request shapes |
 | Metrics | TTFT, TPOT, P95 latency, client tokens/s, engine throughput, accepted length |
 | Systems analysis | Studies concurrency, tensor parallelism, quantization, draft overhead, and breakpoints |
-| Outputs | Scripts, CSV results, reproduction reports, and deployment policy notes |
+| Adaptive policy | Fits benchmark-derived thresholds and routes traffic to baseline or speculative backend |
+| Outputs | Scripts, policy config, CSV results, reproduction reports, and deployment notes |
 
 ## Key Results
 
@@ -77,6 +79,29 @@ policy-controlled serving optimization. It is most useful for low-to-moderate
 concurrency, long-output, domain-matched workloads where decode remains the
 bottleneck.
 
+### Adaptive Routing Policy
+
+The project includes a small policy layer that converts benchmark results into
+runtime routing decisions:
+
+```text
+request + runtime signals
+  -> adaptive policy
+  -> speculative backend if inside benchmark-validated region
+  -> baseline backend otherwise
+```
+
+The policy config is generated from benchmark CSVs, not hardcoded in the router:
+
+```bash
+python3 benchmark/fit_adaptive_policy.py
+python3 benchmark/simulate_adaptive_policy.py
+```
+
+On the available concurrency ladder, the adaptive policy routes 8 profitable
+points to speculative decoding and falls back to baseline on 5 saturated or
+non-profitable points.
+
 ## Methodology
 
 The project is split into two stages.
@@ -85,6 +110,7 @@ The project is split into two stages.
 | --- | --- | --- |
 | A. DeepSpec reproduction | Validate DSpark-side accepted-length improvement against EAGLE3 and DFlash | `results/deepspec_qwen3_8b_acceptance.csv` |
 | B. Serving A/B benchmark | Measure whether the algorithmic signal becomes wall-clock serving speedup | `results/serving_speedup_summary.csv` |
+| C. Adaptive policy | Fit safe speculative regions and simulate baseline/spec routing | `configs/adaptive_spec_policy.json` |
 
 Serving benchmark shape:
 
@@ -167,15 +193,22 @@ The driver writes per-request JSONL, sampled backend metrics, and a compact
 │   ├── overview.png
 │   └── speedup_summary.png
 ├── benchmark/
+│   ├── adaptive_policy.py
+│   ├── fit_adaptive_policy.py
+│   ├── simulate_adaptive_policy.py
 │   └── spec_decode_microbench.py
 ├── configs/
+│   ├── adaptive_spec_policy.json
 │   └── qwen3_spec_benchmark.env.example
 ├── reports/
+│   ├── adaptive_policy.md
 │   ├── deployment_notes.md
 │   ├── dspark_reproduction.md
 │   └── serving_benchmark_report.md
 ├── results/
+│   ├── adaptive_policy_decisions.csv
 │   ├── deepspec_qwen3_8b_acceptance.csv
+│   ├── serving_concurrency_ladder.csv
 │   └── serving_speedup_summary.csv
 └── scripts/
     ├── run_decode_ladder.sh
@@ -200,6 +233,7 @@ can be rerun on different GPU topologies, model paths, and serving backends.
 
 - [DSpark reproduction report](reports/dspark_reproduction.md)
 - [OpenAI-compatible serving benchmark report](reports/serving_benchmark_report.md)
+- [Adaptive speculative decoding policy](reports/adaptive_policy.md)
 - [Deployment notes](reports/deployment_notes.md)
 
 ## Scope and Limitations

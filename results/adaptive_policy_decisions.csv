@@ -1,0 +1,14 @@
+configuration,concurrency,measured_spec_speedup,adaptive_backend,adaptive_speedup,avoided_regression,reason
+qwen3_8b_bf16_single_a30,1,1.76,speculative,1.76,false,within_benchmark_validated_region
+qwen3_8b_bf16_single_a30,2,1.72,speculative,1.72,false,within_benchmark_validated_region
+qwen3_8b_bf16_single_a30,4,1.62,speculative,1.62,false,within_benchmark_validated_region
+qwen3_8b_bf16_single_a30,8,1.56,speculative,1.56,false,within_benchmark_validated_region
+qwen3_8b_bf16_single_a30,16,1.30,speculative,1.30,false,within_benchmark_validated_region
+qwen3_8b_bf16_single_a30,32,0.93,baseline,1.00,true,above_measured_concurrency_region
+qwen3_32b_bf16_tp8,1,1.57,speculative,1.57,false,within_benchmark_validated_region
+qwen3_32b_bf16_tp8,2,1.52,speculative,1.52,false,within_benchmark_validated_region
+qwen3_32b_bf16_tp8,4,1.33,speculative,1.33,false,within_benchmark_validated_region
+qwen3_32b_bf16_tp8,8,0.99,baseline,1.00,true,above_measured_concurrency_region
+qwen3_32b_bf16_tp8,16,0.67,baseline,1.00,true,above_measured_concurrency_region
+qwen3_32b_bf16_tp8,24,0.74,baseline,1.00,true,above_measured_concurrency_region
+qwen3_32b_bf16_tp8,32,0.70,baseline,1.00,true,above_measured_concurrency_region

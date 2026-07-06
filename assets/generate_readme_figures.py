@@ -83,7 +83,7 @@ def overview() -> None:
         (80, "DeepSpec Eval", ["DSpark / EAGLE3 / DFlash", "Qwen3-8B acceptance"], COLORS["cyan"], COLORS["cyan_bg"]),
         (450, "Algorithm Signal", ["accepted length", "paper-level reproduction"], COLORS["green"], COLORS["green_bg"]),
         (820, "Serving A/B", ["target-only baseline", "target + draft + verify"], COLORS["orange"], COLORS["orange_bg"]),
-        (1190, "Policy Output", ["speedup region", "concurrency breakpoint"], COLORS["violet"], COLORS["violet_bg"]),
+        (1190, "Adaptive Policy", ["fit breakpoint", "route or fallback"], COLORS["violet"], COLORS["violet_bg"]),
     ]
     for x, title, lines, color, fill in cards:
         draw_card(draw, x, y, w, h, title, lines, color, fill)
@@ -94,7 +94,7 @@ def overview() -> None:
     metrics = [
         ("Metrics", "TTFT / TPOT / P95 / tokens/s"),
         ("Stack", "Qwen3 + vLLM/SGLang + A30"),
-        ("Artifacts", "scripts + CSVs + reports"),
+        ("Artifacts", "policy + CSVs + reports"),
     ]
     for i, (title, body) in enumerate(metrics):
         x = 80 + i * 500

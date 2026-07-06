@@ -1,0 +1,14 @@
+configuration,concurrency,speedup
+qwen3_8b_bf16_single_a30,1,1.76
+qwen3_8b_bf16_single_a30,2,1.72
+qwen3_8b_bf16_single_a30,4,1.62
+qwen3_8b_bf16_single_a30,8,1.56
+qwen3_8b_bf16_single_a30,16,1.30
+qwen3_8b_bf16_single_a30,32,0.93
+qwen3_32b_bf16_tp8,1,1.57
+qwen3_32b_bf16_tp8,2,1.52
+qwen3_32b_bf16_tp8,4,1.33
+qwen3_32b_bf16_tp8,8,0.99
+qwen3_32b_bf16_tp8,16,0.67
+qwen3_32b_bf16_tp8,24,0.74
+qwen3_32b_bf16_tp8,32,0.70
