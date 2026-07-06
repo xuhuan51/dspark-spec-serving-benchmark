@@ -17,17 +17,38 @@
 </p>
 
 This repository evaluates DeepSeek DSpark-style speculative decoding as an
-OpenAI-compatible LLM serving optimization. It connects paper-level
-accepted-length reproduction with end-to-end serving benchmarks, so the project
-answers a practical systems question:
+OpenAI-compatible LLM serving optimization. It includes three connected parts:
+DeepSpec/DSpark reproduction, end-to-end serving benchmark, and an adaptive
+policy that decides when traffic should use speculative decoding.
+
+The project answers a practical systems question:
 
 > When does speculative decoding actually reduce wall-clock latency for an LLM
 > service?
 
 The project does **not** train a new draft model. It uses existing DSpark /
 DeepSpec and supported draft-model serving paths to build a reproducible
-benchmark, compare baseline vs speculative decoding, and derive deployment
-rules.
+benchmark, compare baseline vs speculative decoding, and derive a
+policy-controlled routing strategy.
+
+## What This Project Implements
+
+```text
+paper-level DSpark signal
+  -> DeepSpec accepted-length reproduction
+  -> OpenAI-compatible baseline/spec serving benchmark
+  -> concurrency breakpoint analysis
+  -> adaptive baseline/spec routing policy
+```
+
+| Component | Implementation |
+| --- | --- |
+| Algorithm reproduction | Reproduces DSpark / EAGLE3 / DFlash accepted-length results on Qwen3-8B |
+| Serving benchmark | Uses OpenAI-compatible endpoints to compare target-only vs speculative decoding |
+| Benchmark driver | Collects TTFT, TPOT, P95, tokens/s, accepted length, and backend metrics |
+| Policy fitter | Converts measured concurrency ladder results into `configs/adaptive_spec_policy.json` |
+| Runtime policy | Routes requests to speculative backend only inside benchmark-validated regions |
+| Simulator | Replays measured ladder points to compare always-speculative vs adaptive routing |
 
 ## Highlights
 
@@ -101,6 +122,19 @@ python3 benchmark/simulate_adaptive_policy.py
 On the available concurrency ladder, the adaptive policy routes 8 profitable
 points to speculative decoding and falls back to baseline on 5 saturated or
 non-profitable points.
+
+Fitted safe regions:
+
+| Configuration | Policy Source | Safe Spec Concurrency |
+| --- | --- | ---: |
+| Qwen3-8B BF16, single A30 | measured ladder | 16 |
+| Qwen3-32B BF16, TP8 | measured ladder | 4 |
+| Qwen3-32B INT4, TP4 | summary breakpoint | 5 |
+
+The safe region is intentionally more conservative than the approximate
+breakpoint reported in the benchmark summary. The policy uses the largest
+measured profitable concurrency point, then falls back to baseline outside that
+validated region.
 
 ## Methodology
 
@@ -183,6 +217,47 @@ python3 benchmark/spec_decode_microbench.py \
 
 The driver writes per-request JSONL, sampled backend metrics, and a compact
 `ladder.csv` summary under the selected output directory.
+
+### 6. Fit and simulate adaptive policy
+
+Generate the policy config from benchmark artifacts:
+
+```bash
+python3 benchmark/fit_adaptive_policy.py \
+  --ladder-csv results/serving_concurrency_ladder.csv \
+  --summary-csv results/serving_speedup_summary.csv \
+  --out configs/adaptive_spec_policy.json \
+  --min-speedup 1.05
+```
+
+Replay measured concurrency points with adaptive routing:
+
+```bash
+python3 benchmark/simulate_adaptive_policy.py \
+  --policy-config configs/adaptive_spec_policy.json \
+  --ladder-csv results/serving_concurrency_ladder.csv \
+  --out results/adaptive_policy_decisions.csv
+```
+
+Example runtime decision:
+
+```bash
+python3 benchmark/adaptive_policy.py \
+  --configuration qwen3_32b_bf16_tp8 \
+  --concurrency 16 \
+  --expected-output-tokens 256 \
+  --accepted-length 2.5
+```
+
+Expected output:
+
+```json
+{
+  "backend": "baseline",
+  "enable_speculative": false,
+  "reason": "above_measured_concurrency_region"
+}
+```
 
 ## Repository Layout
 
