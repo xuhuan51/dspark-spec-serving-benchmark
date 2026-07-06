@@ -1,10 +1,6 @@
 # DeepSeek DSpark Speculative Decoding Serving Benchmark
 
 <p align="center">
-  <img src="assets/overview.svg" alt="DSpark speculative decoding benchmark pipeline" width="920">
-</p>
-
-<p align="center">
   <b>基于 DeepSeek DSpark 的 LLM 投机解码推理加速优化</b>
 </p>
 
@@ -28,6 +24,19 @@ DeepSpec and supported draft-model serving paths to build a reproducible
 benchmark, compare baseline vs speculative decoding, and derive deployment
 rules.
 
+## Architecture
+
+```mermaid
+flowchart LR
+    A[DeepSpec Evaluator<br/>DSpark / EAGLE3 / DFlash] --> B[Accepted Length<br/>Algorithm-side reproduction]
+    B --> C[OpenAI-compatible Serving<br/>vLLM / SGLang endpoints]
+    C --> D[Benchmark Driver<br/>TTFT / TPOT / P95 / tokens/s]
+    D --> E[Deployment Policy<br/>speedup region and breakpoints]
+
+    C --> C1[Baseline<br/>target model only]
+    C --> C2[Speculative<br/>target + draft + verify]
+```
+
 ## Highlights
 
 | Area | What This Repository Provides |
@@ -40,9 +49,12 @@ rules.
 
 ## Key Results
 
-<p align="center">
-  <img src="assets/speedup_summary.svg" alt="End-to-end serving speedup summary" width="920">
-</p>
+```mermaid
+flowchart LR
+    R[End-to-end serving speedup] --> A[Qwen3-8B BF16<br/>single A30<br/>1.76x, breakpoint ~c=26]
+    R --> B[Qwen3-32B BF16<br/>TP8<br/>1.57x, breakpoint ~c=8]
+    R --> C[Qwen3-32B INT4<br/>TP4<br/>1.43x, breakpoint ~c=5]
+```
 
 ### DeepSpec / DSpark Reproduction
 
@@ -162,9 +174,6 @@ The driver writes per-request JSONL, sampled backend metrics, and a compact
 
 ```text
 .
-├── assets/
-│   ├── overview.svg
-│   └── speedup_summary.svg
 ├── benchmark/
 │   └── spec_decode_microbench.py
 ├── configs/
@@ -211,4 +220,3 @@ the tested OpenAI-compatible serving stack.
 This distinction is intentional: it separates the algorithm question
 (`accepted length`) from the serving question (`wall-clock latency and
 throughput`), which is the core systems problem the project evaluates.
-
