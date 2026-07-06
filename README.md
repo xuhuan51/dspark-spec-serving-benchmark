@@ -1,61 +1,50 @@
 # DeepSeek DSpark Speculative Decoding Serving Benchmark
 
-**基于 DeepSeek DSpark 的 LLM 投机解码推理加速优化**
+<p align="center">
+  <img src="assets/overview.svg" alt="DSpark speculative decoding benchmark pipeline" width="920">
+</p>
 
-This repository is a reproducible AI infrastructure project for evaluating
-DeepSeek DSpark-style speculative decoding as an OpenAI-compatible LLM serving
-optimization.
+<p align="center">
+  <b>基于 DeepSeek DSpark 的 LLM 投机解码推理加速优化</b>
+</p>
 
-The project connects two layers that are often discussed separately:
+<p align="center">
+  <a href="reports/dspark_reproduction.md">DSpark Reproduction</a> ·
+  <a href="reports/serving_benchmark_report.md">Serving Benchmark</a> ·
+  <a href="reports/deployment_notes.md">Deployment Notes</a> ·
+  <a href="results/serving_speedup_summary.csv">Result CSV</a>
+</p>
 
-- algorithm-side acceptance length, reproduced with the DeepSpec / DSpark
-  evaluator;
-- serving-side wall-clock speedup, measured through OpenAI-compatible vLLM /
-  SGLang endpoints under matched workloads.
+This repository evaluates DeepSeek DSpark-style speculative decoding as an
+OpenAI-compatible LLM serving optimization. It connects paper-level
+accepted-length reproduction with end-to-end serving benchmarks, so the project
+answers a practical systems question:
 
-The goal is not to train a new draft model. The goal is to measure when a
-speculative-decoding algorithm improvement actually becomes end-to-end serving
-speedup.
+> When does speculative decoding actually reduce wall-clock latency for an LLM
+> service?
 
-## Why This Project Exists
+The project does **not** train a new draft model. It uses existing DSpark /
+DeepSpec and supported draft-model serving paths to build a reproducible
+benchmark, compare baseline vs speculative decoding, and derive deployment
+rules.
 
-Speculative decoding can reduce autoregressive decode latency by using a small
-draft model to propose tokens and a target model to verify them in batches.
-However, higher accepted length does not automatically mean faster production
-serving. Real speedup also depends on draft overhead, tensor parallelism,
-quantization, KV-cache pressure, batching, and request concurrency.
+## Highlights
 
-This project builds a complete benchmark path:
-
-```text
-DeepSpec / DSpark evaluator
-        |
-        v
-accepted-length reproduction
-        |
-        v
-OpenAI-compatible baseline/spec serving endpoints
-        |
-        v
-TTFT / TPOT / P95 / tokens/s / accepted-length measurement
-        |
-        v
-deployment policy and breakpoint analysis
-```
-
-## What Is Included
-
-- DeepSpec reproduction scripts for DSpark, EAGLE3, and DFlash on Qwen3-8B.
-- OpenAI-compatible serving benchmark scripts for baseline vs speculative
-  decoding.
-- Concurrency ladder benchmark driver for TTFT, TPOT, P95 latency, tokens/s,
-  accepted length, and engine metrics.
-- Result CSVs and reports for Qwen3-8B and Qwen3-32B serving experiments.
-- Deployment notes describing when speculative decoding should be enabled.
+| Area | What This Repository Provides |
+| --- | --- |
+| Algorithm validation | Reproduces DeepSpec DSpark / EAGLE3 / DFlash accepted length on Qwen3-8B |
+| Serving benchmark | Runs OpenAI-compatible baseline/speculative endpoints with matched request shapes |
+| Metrics | TTFT, TPOT, P95 latency, client tokens/s, engine throughput, accepted length |
+| Systems analysis | Studies concurrency, tensor parallelism, quantization, draft overhead, and breakpoints |
+| Outputs | Scripts, CSV results, reproduction reports, and deployment policy notes |
 
 ## Key Results
 
-### 1. DeepSpec / DSpark Reproduction
+<p align="center">
+  <img src="assets/speedup_summary.svg" alt="End-to-end serving speedup summary" width="920">
+</p>
+
+### DeepSpec / DSpark Reproduction
 
 On Qwen3-8B with official DeepSpec-style checkpoints:
 
@@ -72,10 +61,10 @@ The reproduced result is close to the paper-level claim:
 | DSpark vs EAGLE3 | +26.4% | +26.7% |
 | DSpark vs DFlash | +18.6% | +18.4% |
 
-### 2. End-to-End Serving Speedup
+### OpenAI-Compatible Serving Speedup
 
-OpenAI-compatible serving benchmark with Qwen3 target models and supported
-EAGLE3 draft-model serving paths:
+The serving experiments compare target-only decoding with speculative decoding
+under the same request shape.
 
 | Configuration | c=1 Speedup | Breakpoint | Main Bottleneck |
 | --- | ---: | ---: | --- |
@@ -83,69 +72,32 @@ EAGLE3 draft-model serving paths:
 | Qwen3-32B BF16, TP8 | 1.57x | ~c=8 | tensor-parallel communication |
 | Qwen3-32B INT4, TP4 | 1.43x | ~c=5 | quantization reduces decode bottleneck |
 
-Main conclusion: speculative decoding is useful as a policy-controlled serving
-optimization, especially for low-to-moderate concurrency, long-output,
-domain-matched workloads where decode remains the bottleneck.
+Main conclusion: speculative decoding should be treated as a
+policy-controlled serving optimization. It is most useful for low-to-moderate
+concurrency, long-output, domain-matched workloads where decode remains the
+bottleneck.
 
 ## Methodology
 
-The benchmark is split into two stages.
+The project is split into two stages.
 
-### Stage A: Algorithm Reproduction
+| Stage | Purpose | Output |
+| --- | --- | --- |
+| A. DeepSpec reproduction | Validate DSpark-side accepted-length improvement against EAGLE3 and DFlash | `results/deepspec_qwen3_8b_acceptance.csv` |
+| B. Serving A/B benchmark | Measure whether the algorithmic signal becomes wall-clock serving speedup | `results/serving_speedup_summary.csv` |
 
-DeepSpec's evaluator is used to reproduce accepted length for DSpark, EAGLE3,
-and DFlash on Qwen3-8B. This validates that the DSpark-side algorithmic signal
-is present before testing serving behavior.
-
-Output:
-
-```text
-results/deepspec_qwen3_8b_acceptance.csv
-reports/dspark_reproduction.md
-```
-
-### Stage B: Serving A/B Benchmark
-
-The serving benchmark starts two OpenAI-compatible endpoints with the same
-target model and request shape:
+Serving benchmark shape:
 
 ```text
-baseline endpoint: target model only
-spec endpoint:     target model + draft model + speculative decoding
+client
+  -> /v1/chat/completions
+  -> baseline endpoint: target model only
+  -> spec endpoint: target model + draft model + speculative verification
+  -> benchmark driver: latency, throughput, accepted length, backend metrics
 ```
 
-The benchmark driver sends streaming `/v1/chat/completions` requests and records
-client-side latency plus engine-side metrics exposed by the backend.
-
-Output:
-
-```text
-results/serving_speedup_summary.csv
-reports/serving_benchmark_report.md
-reports/deployment_notes.md
-```
-
-## Repository Layout
-
-```text
-.
-├── benchmark/
-│   └── spec_decode_microbench.py
-├── configs/
-│   └── qwen3_spec_benchmark.env.example
-├── reports/
-│   ├── deployment_notes.md
-│   ├── dspark_reproduction.md
-│   └── serving_benchmark_report.md
-├── results/
-│   ├── deepspec_qwen3_8b_acceptance.csv
-│   └── serving_speedup_summary.csv
-└── scripts/
-    ├── run_decode_ladder.sh
-    ├── run_deepspec_eval_qwen3_8b.sh
-    ├── run_vllm_baseline.sh
-    └── run_vllm_spec.sh
-```
+This separates the algorithm metric, `accepted length`, from the serving metric,
+`wall-clock latency and throughput`.
 
 ## Quick Start
 
@@ -206,6 +158,31 @@ python3 benchmark/spec_decode_microbench.py \
 The driver writes per-request JSONL, sampled backend metrics, and a compact
 `ladder.csv` summary under the selected output directory.
 
+## Repository Layout
+
+```text
+.
+├── assets/
+│   ├── overview.svg
+│   └── speedup_summary.svg
+├── benchmark/
+│   └── spec_decode_microbench.py
+├── configs/
+│   └── qwen3_spec_benchmark.env.example
+├── reports/
+│   ├── deployment_notes.md
+│   ├── dspark_reproduction.md
+│   └── serving_benchmark_report.md
+├── results/
+│   ├── deepspec_qwen3_8b_acceptance.csv
+│   └── serving_speedup_summary.csv
+└── scripts/
+    ├── run_decode_ladder.sh
+    ├── run_deepspec_eval_qwen3_8b.sh
+    ├── run_vllm_baseline.sh
+    └── run_vllm_spec.sh
+```
+
 ## Hardware and Runtime
 
 Original experiments were run on:
@@ -215,8 +192,8 @@ Original experiments were run on:
 - DSpark / DFlash / EAGLE3 official or open checkpoints
 - vLLM / SGLang OpenAI-compatible serving interfaces
 
-The scripts are intentionally parameterized through environment variables so
-the same benchmark can be rerun on different GPU topologies and model paths.
+The scripts are parameterized through environment variables so the benchmark
+can be rerun on different GPU topologies, model paths, and serving backends.
 
 ## Reports
 

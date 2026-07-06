@@ -1,0 +1,51 @@
+<svg width="980" height="360" viewBox="0 0 980 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DSpark speculative decoding benchmark pipeline">
+  <rect width="980" height="360" rx="18" fill="#F8FAFC"/>
+  <rect x="1" y="1" width="978" height="358" rx="17" stroke="#CBD5E1"/>
+
+  <text x="42" y="48" fill="#0F172A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="700">DSpark Speculative Decoding Serving Benchmark</text>
+  <text x="42" y="76" fill="#475569" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">From accepted-length reproduction to OpenAI-compatible serving speedup</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#64748B"/>
+    </marker>
+  </defs>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="42" y="122" width="190" height="112" rx="12" fill="#ECFEFF" stroke="#06B6D4" stroke-width="1.5"/>
+    <text x="64" y="154" fill="#0E7490" font-size="15" font-weight="700">DeepSpec Evaluator</text>
+    <text x="64" y="182" fill="#334155" font-size="13">DSpark / EAGLE3 / DFlash</text>
+    <text x="64" y="204" fill="#334155" font-size="13">Qwen3-8B accepted length</text>
+
+    <rect x="292" y="122" width="190" height="112" rx="12" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+    <text x="314" y="154" fill="#15803D" font-size="15" font-weight="700">Algorithm Signal</text>
+    <text x="314" y="182" fill="#334155" font-size="13">Macro accepted length</text>
+    <text x="314" y="204" fill="#334155" font-size="13">Paper-level reproduction</text>
+
+    <rect x="542" y="122" width="190" height="112" rx="12" fill="#FFF7ED" stroke="#F97316" stroke-width="1.5"/>
+    <text x="564" y="154" fill="#C2410C" font-size="15" font-weight="700">Serving A/B Test</text>
+    <text x="564" y="182" fill="#334155" font-size="13">OpenAI-compatible API</text>
+    <text x="564" y="204" fill="#334155" font-size="13">Baseline vs speculative</text>
+
+    <rect x="792" y="122" width="146" height="112" rx="12" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="814" y="154" fill="#6D28D9" font-size="15" font-weight="700">Policy</text>
+    <text x="814" y="182" fill="#334155" font-size="13">Speedup region</text>
+    <text x="814" y="204" fill="#334155" font-size="13">Breakpoints</text>
+
+    <line x1="244" y1="178" x2="280" y2="178" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="494" y1="178" x2="530" y2="178" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="744" y1="178" x2="780" y2="178" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="42" y="278" width="274" height="42" rx="10" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="60" y="304" fill="#0F172A" font-size="14" font-weight="700">Metrics:</text>
+    <text x="122" y="304" fill="#475569" font-size="14">TTFT, TPOT, P95, tokens/s</text>
+
+    <rect x="354" y="278" width="274" height="42" rx="10" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="372" y="304" fill="#0F172A" font-size="14" font-weight="700">Stack:</text>
+    <text x="424" y="304" fill="#475569" font-size="14">Qwen3, vLLM/SGLang, A30</text>
+
+    <rect x="666" y="278" width="272" height="42" rx="10" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="684" y="304" fill="#0F172A" font-size="14" font-weight="700">Output:</text>
+    <text x="746" y="304" fill="#475569" font-size="14">CSV results and reports</text>
+  </g>
+</svg>
