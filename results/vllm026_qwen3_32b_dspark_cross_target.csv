@@ -1,0 +1,11 @@
+configuration,precision,target_tp,draft_tp,concurrency,baseline_tokens_per_s,dspark_tokens_per_s,throughput_speedup,baseline_tpot_ms,dspark_tpot_ms,tpot_speedup,accepted_length,accept_rate
+qwen3_32b_bf16_tp8_dspark14_cross_target,bf16,8,8,1,49.379,57.629,1.167,20.203,17.272,1.170,1.483,0.0689
+qwen3_32b_bf16_tp8_dspark14_cross_target,bf16,8,8,2,95.114,106.328,1.118,20.864,18.624,1.120,1.529,0.0756
+qwen3_32b_bf16_tp8_dspark14_cross_target,bf16,8,8,4,181.424,155.045,0.855,21.859,25.568,0.855,1.519,0.0741
+qwen3_32b_bf16_tp8_dspark14_cross_target,bf16,8,8,8,350.866,203.513,0.580,22.582,38.816,0.582,1.525,0.0751
+qwen3_32b_bf16_tp8_dspark14_cross_target,bf16,8,8,16,650.999,304.995,0.469,24.263,51.609,0.470,1.522,0.0745
+qwen3_32b_int4_tp4_dspark14_cross_target,int4,4,4,1,74.603,74.292,0.996,13.357,13.374,0.999,1.409,0.0584
+qwen3_32b_int4_tp4_dspark14_cross_target,int4,4,4,2,140.308,126.634,0.903,14.142,15.425,0.917,1.519,0.0741
+qwen3_32b_int4_tp4_dspark14_cross_target,int4,4,4,4,273.463,172.297,0.630,14.497,22.713,0.638,1.465,0.0665
+qwen3_32b_int4_tp4_dspark14_cross_target,int4,4,4,8,515.813,230.487,0.447,15.303,33.701,0.454,1.483,0.0691
+qwen3_32b_int4_tp4_dspark14_cross_target,int4,4,4,16,811.917,301.453,0.371,19.425,51.920,0.374,1.475,0.0679

@@ -46,6 +46,14 @@ def scrape_metrics(base_root: str) -> dict:
         "sglang:num_running_reqs": "num_running_reqs",
         "sglang:num_queue_reqs": "num_queue_reqs",
         "sglang:token_usage": "token_usage",
+        "vllm:generation_tokens_total": "vllm_generation_tokens_total",
+        "vllm:spec_decode_num_drafts_total": "vllm_spec_drafts_total",
+        "vllm:spec_decode_num_draft_tokens_total": "vllm_spec_draft_tokens_total",
+        "vllm:spec_decode_num_accepted_tokens_total": (
+            "vllm_spec_accepted_tokens_total"
+        ),
+        "vllm:num_requests_running": "num_running_reqs",
+        "vllm:num_requests_waiting": "num_queue_reqs",
     }
     for line in text.splitlines():
         if not line or line.startswith("#"):
@@ -148,13 +156,21 @@ async def run_case(args: argparse.Namespace, concurrency: int, out_dir: Path) ->
     for i in range(args.warmup_requests):
         await one_request(client, args.model, -1 - i, args.max_tokens, args.ignore_eos)
 
+    metrics_before = scrape_metrics(args.base_url.removesuffix("/v1"))
     sampler = MetricsSampler(args.base_url.removesuffix("/v1"), out_dir / "metrics.jsonl")
     sampler.start()
     t0 = time.perf_counter()
     rows = await asyncio.gather(*(guarded(i) for i in range(nreq)))
     wall_s = time.perf_counter() - t0
+    metrics_after = scrape_metrics(args.base_url.removesuffix("/v1"))
     sampler.stop = True
     sampler.join(timeout=3)
+    (out_dir / "metrics_before.json").write_text(
+        json.dumps(metrics_before, indent=2) + "\n"
+    )
+    (out_dir / "metrics_after.json").write_text(
+        json.dumps(metrics_after, indent=2) + "\n"
+    )
 
     with (out_dir / "requests.jsonl").open("w") as fh:
         for row in rows:
@@ -175,6 +191,52 @@ async def run_case(args: argparse.Namespace, concurrency: int, out_dir: Path) ->
         for s in sampler.samples
         if isinstance(s.get("spec_accept_length"), float) and s.get("spec_accept_length", 0) > 0
     ]
+    vllm_gen_before = metrics_before.get("vllm_generation_tokens_total")
+    vllm_gen_after = metrics_after.get("vllm_generation_tokens_total")
+    if isinstance(vllm_gen_before, float) and isinstance(vllm_gen_after, float):
+        vllm_gen_throughput = max(0.0, vllm_gen_after - vllm_gen_before) / wall_s
+    else:
+        vllm_gen_throughput = 0.0
+
+    vllm_drafts_before = metrics_before.get("vllm_spec_drafts_total")
+    vllm_drafts_after = metrics_after.get("vllm_spec_drafts_total")
+    vllm_accepted_before = metrics_before.get("vllm_spec_accepted_tokens_total")
+    vllm_accepted_after = metrics_after.get("vllm_spec_accepted_tokens_total")
+    vllm_draft_tokens_before = metrics_before.get("vllm_spec_draft_tokens_total")
+    vllm_draft_tokens_after = metrics_after.get("vllm_spec_draft_tokens_total")
+    vllm_accept_length = 0.0
+    vllm_accept_rate = 0.0
+    if all(
+        isinstance(value, float)
+        for value in (
+            vllm_drafts_before,
+            vllm_drafts_after,
+            vllm_accepted_before,
+            vllm_accepted_after,
+            vllm_draft_tokens_before,
+            vllm_draft_tokens_after,
+        )
+    ):
+        delta_drafts = max(0.0, vllm_drafts_after - vllm_drafts_before)
+        delta_accepted = max(0.0, vllm_accepted_after - vllm_accepted_before)
+        delta_draft_tokens = max(
+            0.0, vllm_draft_tokens_after - vllm_draft_tokens_before
+        )
+        if delta_drafts > 0:
+            vllm_accept_length = 1.0 + delta_accepted / delta_drafts
+        if delta_draft_tokens > 0:
+            vllm_accept_rate = delta_accepted / delta_draft_tokens
+
+    engine_throughput = (
+        vllm_gen_throughput
+        if vllm_gen_throughput > 0
+        else (statistics.median(gen_tp) if gen_tp else 0.0)
+    )
+    spec_accept_length = (
+        vllm_accept_length
+        if vllm_accept_length > 0
+        else (statistics.median(accept) if accept else 0.0)
+    )
     summary = {
         "tag": args.tag,
         "concurrency": concurrency,
@@ -193,8 +255,9 @@ async def run_case(args: argparse.Namespace, concurrency: int, out_dir: Path) ->
         "tpot_ms_avg": statistics.mean(tpots) if tpots else 0.0,
         "tpot_ms_p50": percentile(tpots, 50),
         "tpot_ms_p95": percentile(tpots, 95),
-        "metrics_gen_throughput_median": statistics.median(gen_tp) if gen_tp else 0.0,
-        "metrics_spec_accept_length_median": statistics.median(accept) if accept else 0.0,
+        "metrics_gen_throughput_median": engine_throughput,
+        "metrics_spec_accept_length_median": spec_accept_length,
+        "metrics_spec_accept_rate": vllm_accept_rate,
     }
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     return summary
@@ -223,7 +286,8 @@ async def main() -> None:
     ladder.write_text(
         "tag,c,requests,success,wall_s,chunks,client_chunk_throughput,"
         "output_tokens_est,client_token_throughput_est,ttft_ms_p50,"
-        "tpot_ms_p50,tpot_ms_p95,gen_tp_median,accept_len_median\n"
+        "tpot_ms_p50,tpot_ms_p95,gen_tp_median,accept_len_median,"
+        "accept_rate\n"
     )
     for c in [int(x) for x in args.concurrencies.split(",") if x.strip()]:
         case_dir = root / f"c{c}"
@@ -239,7 +303,8 @@ async def main() -> None:
                 f"{summary['ttft_ms_p50']:.3f},{summary['tpot_ms_p50']:.3f},"
                 f"{summary['tpot_ms_p95']:.3f},"
                 f"{summary['metrics_gen_throughput_median']:.3f},"
-                f"{summary['metrics_spec_accept_length_median']:.3f}\n"
+                f"{summary['metrics_spec_accept_length_median']:.3f},"
+                f"{summary['metrics_spec_accept_rate']:.4f}\n"
             )
         print(json.dumps(summary, indent=2), flush=True)
     print(ladder.read_text())

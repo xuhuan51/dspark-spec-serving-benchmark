@@ -10,6 +10,8 @@
 
 <p align="center">
   <a href="reports/dspark_reproduction.md">DSpark Reproduction</a> ·
+  <a href="reports/vllm026_dspark_serving_validation.md">Native DSpark Serving</a> ·
+  <a href="reports/vllm026_dspark_32b_cross_target.md">32B Stress Test</a> ·
   <a href="reports/serving_benchmark_report.md">Serving Benchmark</a> ·
   <a href="reports/adaptive_policy.md">Adaptive Policy</a> ·
   <a href="reports/deployment_notes.md">Deployment Notes</a> ·
@@ -89,16 +91,51 @@ The reproduced result is close to the paper-level claim:
 The serving experiments compare target-only decoding with speculative decoding
 under the same request shape.
 
-| Configuration | c=1 Speedup | Breakpoint | Main Bottleneck |
-| --- | ---: | ---: | --- |
-| Qwen3-8B BF16, single A30 | 1.76x | ~c=26 | draft overhead and batching budget |
-| Qwen3-32B BF16, TP8 | 1.57x | ~c=8 | tensor-parallel communication |
-| Qwen3-32B INT4, TP4 | 1.43x | ~c=5 | quantization reduces decode bottleneck |
+| Configuration | Serving draft | c=1 Speedup | Breakpoint | Main Bottleneck |
+| --- | --- | ---: | ---: | --- |
+| Qwen3-8B BF16, single A30 | AngelSlim EAGLE3 | 1.76x | ~c=26 | draft overhead and batching budget |
+| Qwen3-32B BF16, TP8 | AngelSlim EAGLE3 | 1.57x | ~c=8 | tensor-parallel communication |
+| Qwen3-32B INT4, TP4 | AngelSlim EAGLE3 | 1.43x | ~c=5 | quantization reduces decode bottleneck |
 
 Main conclusion: speculative decoding should be treated as a
 policy-controlled serving optimization. It is most useful for low-to-moderate
 concurrency, long-output, domain-matched workloads where decode remains the
 bottleneck.
+
+### Native DSpark Serving on vLLM 0.26.0
+
+The original DeepSpec `Qwen3DSparkModel` checkpoint now runs directly through
+vLLM's native `dspark` serving method. A matched Qwen3-8B BF16 decode-only
+validation on one A30 per endpoint produced:
+
+| Concurrency | Throughput speedup | TPOT speedup | Accepted length |
+| ---: | ---: | ---: | ---: |
+| 1 | 2.05x | 2.08x | 2.63 |
+| 4 | 1.89x | 1.91x | 2.57 |
+| 16 | 1.61x | 1.63x | 2.67 |
+
+See `reports/vllm026_dspark_serving_validation.md` for the full five-point
+ladder and correctness notes.
+
+### Qwen3-32B Cross-Target Stress Test
+
+The DeepSpec checkpoint set available for this experiment did not include a
+matched Qwen3-32B DSpark drafter. Qwen3-14B and Qwen3-32B share the hidden
+width and vocabulary needed by the runtime, so the 14B DSpark checkpoint was
+connected to the 32B target as an intentional mismatch stress test:
+
+| Target configuration | c=1 | c=2 | c=4 | c=8 | c=16 | Accepted length |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Qwen3-32B BF16, TP8 | 1.17x | 1.12x | 0.85x | 0.58x | 0.47x | 1.48-1.53 |
+| Qwen3-32B INT4, TP4 | 1.00x | 0.90x | 0.63x | 0.45x | 0.37x | 1.41-1.52 |
+
+The BF16 target retained a small low-concurrency region because its baseline
+decode was expensive. INT4 removed most of that headroom, and the mismatched
+draft plus verification overhead became negative almost immediately.
+
+These rows are **not** matched Qwen3-32B DSpark results. They are evidence for
+the routing policy's model-match, quantization, and concurrency guards. See
+`reports/vllm026_dspark_32b_cross_target.md` for the full results.
 
 ### Adaptive Routing Policy
 
@@ -184,23 +221,22 @@ outputs/deepspec-runs/
 ### 3. Start a baseline serving endpoint
 
 ```bash
-MODEL_PATH=/models/Qwen3-8B \
+MODEL_PATH=/home/liuguangli/models/Qwen3-8B \
 PORT=8550 \
-TP=1 \
 GPUS=0 \
-bash scripts/run_vllm_baseline.sh
+TP=1 \
+bash scripts/run_vllm_local_baseline.sh
 ```
 
-### 4. Start a speculative-decoding endpoint
+### 4. Start a native DSpark endpoint
 
 ```bash
-MODEL_PATH=/models/Qwen3-8B \
-DRAFT_MODEL_PATH=/models/Qwen3-8B_eagle3_angelslim \
-PORT=8550 \
+MODEL_PATH=/home/liuguangli/models/Qwen3-8B \
+DRAFT_MODEL_PATH=/home/liuguangli/models/dspark_qwen3_8b_block7 \
+PORT=8551 \
+GPUS=1 \
 TP=1 \
-GPUS=0 \
-SPEC_TOKENS=4 \
-bash scripts/run_vllm_spec.sh
+bash scripts/run_vllm_dspark.sh
 ```
 
 ### 5. Run the concurrency ladder
@@ -279,16 +315,22 @@ Expected output:
 │   ├── adaptive_policy.md
 │   ├── deployment_notes.md
 │   ├── dspark_reproduction.md
-│   └── serving_benchmark_report.md
+│   ├── serving_benchmark_report.md
+│   ├── vllm026_dspark_32b_cross_target.md
+│   └── vllm026_dspark_serving_validation.md
 ├── results/
 │   ├── adaptive_policy_decisions.csv
 │   ├── deepspec_qwen3_8b_acceptance.csv
 │   ├── serving_concurrency_ladder.csv
-│   └── serving_speedup_summary.csv
+│   ├── serving_speedup_summary.csv
+│   ├── vllm026_qwen3_32b_dspark_cross_target.csv
+│   └── vllm026_qwen3_8b_dspark_serving.csv
 └── scripts/
     ├── run_decode_ladder.sh
     ├── run_deepspec_eval_qwen3_8b.sh
     ├── run_vllm_baseline.sh
+    ├── run_vllm_dspark.sh
+    ├── run_vllm_local_baseline.sh
     └── run_vllm_spec.sh
 ```
 
@@ -307,17 +349,20 @@ can be rerun on different GPU topologies, model paths, and serving backends.
 ## Reports
 
 - [DSpark reproduction report](reports/dspark_reproduction.md)
+- [Native DSpark serving validation](reports/vllm026_dspark_serving_validation.md)
+- [Qwen3-32B cross-target stress test](reports/vllm026_dspark_32b_cross_target.md)
 - [OpenAI-compatible serving benchmark report](reports/serving_benchmark_report.md)
 - [Adaptive speculative decoding policy](reports/adaptive_policy.md)
 - [Deployment notes](reports/deployment_notes.md)
 
 ## Scope and Limitations
 
-This repository does not claim that DSpark itself is fully integrated into vLLM
-serving. DSpark is used as the DeepSpec algorithm baseline and reproduction
-target. The end-to-end serving experiments use draft-model paths supported by
-the tested OpenAI-compatible serving stack.
+The original full serving matrix predates native DSpark support and uses
+AngelSlim EAGLE3 checkpoints. The newer vLLM 0.26.0 validation adds a matched
+Qwen3-8B + DSpark path. Its Qwen3-32B extension uses the compatible Qwen3-14B
+DSpark checkpoint as an explicit cross-target mismatch test because no matched
+Qwen3-32B DSpark checkpoint was available in the evaluated release set.
 
-This distinction is intentional: it separates the algorithm question
-(`accepted length`) from the serving question (`wall-clock latency and
-throughput`), which is the core systems problem the project evaluates.
+This distinction keeps the algorithm question (`accepted length`) separate
+from the serving question (`wall-clock latency and throughput`), while making
+the runtime used by each result explicit.
