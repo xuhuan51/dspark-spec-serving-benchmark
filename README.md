@@ -1,14 +1,16 @@
-# DeepSeek DSpark Speculative Decoding Serving Benchmark
+# DSpark Speculative Decoding Serving Benchmark
 
 <p align="center">
   <img src="assets/overview.png" alt="DSpark speculative decoding serving benchmark overview" width="920">
 </p>
 
 <p align="center">
-  <b>基于 DeepSeek DSpark 的 LLM 投机解码推理加速优化</b>
+  <b>基于 DSpark 的多卡大模型推理加速与 vLLM 调度优化</b>
 </p>
 
 <p align="center">
+  <a href="benchmark/qwen38_multigpu/README.md">Qwen3.8 TP4 Optimization</a> ·
+  <a href="reports/qwen38_dspark_closure_20261003.md">Direct A/B & Diagnostics</a> ·
   <a href="reports/dspark_reproduction.md">DSpark Reproduction</a> ·
   <a href="reports/vllm026_dspark_serving_validation.md">Native DSpark Serving</a> ·
   <a href="reports/vllm026_dspark_32b_cross_target.md">32B Stress Test</a> ·
@@ -18,10 +20,12 @@
   <a href="results/serving_speedup_summary.csv">Result CSV</a>
 </p>
 
-This repository evaluates DeepSeek DSpark-style speculative decoding as an
-OpenAI-compatible LLM serving optimization. It includes three connected parts:
-DeepSpec/DSpark reproduction, end-to-end serving benchmark, and an adaptive
-policy that decides when traffic should use speculative decoding.
+This repository benchmarks DSpark speculative decoding through
+OpenAI-compatible serving endpoints. The latest experiment deploys
+**Qwen3.8-27B BF16 + a matched DSpark drafter on 4×A30 TP4**, then extends
+vLLM's verification scheduling and CUDA Graph capture to improve serving
+efficiency. Earlier DeepSpec reproduction, Qwen3-8B/32B serving experiments,
+and baseline/speculative routing studies remain available as separate work.
 
 The project answers a practical systems question:
 
@@ -32,6 +36,52 @@ The project does **not** train a new draft model. It uses existing DSpark /
 DeepSpec and supported draft-model serving paths to build a reproducible
 benchmark, compare baseline vs speculative decoding, and derive a
 policy-controlled routing strategy.
+
+## Latest: Qwen3.8-27B Hybrid-Model Inference Optimization
+
+面向含 Gated DeltaNet（GDN）的混合注意力模型，先接入匹配的 DSpark
+草稿，再针对高并发下的验证开销与调度效率进行框架适配。
+
+**端到端接入收益。** vLLM 0.29.0、4×A30 TP4、约 2K 输入 / 256
+实际输出 token、每卡 4.5 GiB 缓存预算；同一冻结负载进行五轮配对测试。
+
+| 请求并发 | 原生 DSpark / 自回归吞吐 | TPOT 降幅 |
+| ---: | ---: | ---: |
+| 1 | **2.433×** | **63.9%** |
+| 4 | **1.688×** | **55.9%** |
+| 16 | 0.898× | 27.3% |
+
+**具体开发工作。** 根据活跃请求数选择统一验证长度，并按验证宽度和
+请求数分档捕获 CUDA Graph；图桶消融将目标 padding 比从 **1.41
+降至 1.09**。这一步减少捕获形状的补齐，比例不是 GPU 耗时降幅。
+
+| 对比 | 五轮配对吞吐变化 |
+| --- | ---: |
+| 并发 4：预算+图分档 / 原始 DSpark 策略 | **+6.3%** |
+| 并发 16：预算+图分档 / 原始 DSpark 策略 | **+7.8%** |
+| 并发 16：仅图分档 / 原始策略 | +0.9% |
+| 并发 16：预算+图分档 / 仅图分档 | +8.2% |
+
+c=4 增量来自首轮 held-out 消融；c=16 来自后续五轮 AR/native/graphs/budget
+直接对照，DSpark 三组共用一个扩展图池。最新 c=16 组合方案 / AR 为
+**0.995×**（五轮范围 0.974–1.016×），基本持平；同组原始策略 / AR
+为 0.931×。上表的 0.898× 来自首轮独立部署，不能与 +7.8% 相乘。
+所有加速均为同轮比值的中位数，逐级消融的中位数也不能相加或相乘。
+
+**瓶颈与验证。** 真实分配记录确认 GDN 额外状态占用引发准入排队；
+13,056 个输出决策均符合各自目标 argmax，所查序列首分歧对应 BF16
+logits 排序变化。长序列并不逐 token 一致，没有将数值差异宣布为已修复。
+该适配仍按最大 K=7 配置状态容量，未实现这一模型的自动 AR 回退。
+
+代码与复现步骤见 [Qwen3.8 多卡实验](benchmark/qwen38_multigpu/README.md)，
+详细结果见 [直接对照与诊断报告](reports/qwen38_dspark_closure_20261003.md)。
+记录与 SHA-256 清单在 [结果目录](results/qwen38_multigpu_20261003)。
+不需要 GPU 即可重新计算四份结果汇总：
+
+```bash
+python3 benchmark/qwen38_multigpu/reproduce_results.py \
+  --output outputs/qwen38-evidence
+```
 
 ## What This Project Implements
 
@@ -48,6 +98,10 @@ paper-level DSpark signal
 | Algorithm reproduction | Reproduces DSpark / EAGLE3 / DFlash accepted-length results on Qwen3-8B |
 | Serving benchmark | Uses OpenAI-compatible endpoints to compare target-only vs speculative decoding |
 | Benchmark driver | Collects TTFT, TPOT, P95, tokens/s, accepted length, and backend metrics |
+| Hybrid-model TP4 experiment | Deploys matched Qwen3.8-27B + DSpark with paired AR comparisons |
+| vLLM scheduling adapter | Selects a calibrated uniform verification prefix from actual active batch |
+| CUDA Graph adaptation | Captures query-width/request buckets and measures original/graphs/budget ablations |
+| Capacity and decision diagnostics | Audits real GDN allocations, target argmax, and EOS/stop behavior separately from timing |
 | Policy fitter | Converts measured concurrency ladder results into `configs/adaptive_spec_policy.json` |
 | Runtime policy | Routes requests to speculative backend only inside benchmark-validated regions |
 | Simulator | Replays measured ladder points to compare always-speculative vs adaptive routing |
@@ -63,7 +117,10 @@ paper-level DSpark signal
 | Adaptive policy | Fits benchmark-derived thresholds and routes traffic to baseline or speculative backend |
 | Outputs | Scripts, policy config, CSV results, reproduction reports, and deployment notes |
 
-## Key Results
+## Earlier Qwen3 / DeepSpec Results
+
+These figures and tables describe the earlier 8B/32B experiments. The
+Qwen3.8 TP4 results, runtime, and controls are recorded separately above.
 
 <p align="center">
   <img src="assets/speedup_summary.png" alt="End-to-end speculative decoding serving speedup summary" width="920">
@@ -304,14 +361,19 @@ Expected output:
 │   ├── overview.png
 │   └── speedup_summary.png
 ├── benchmark/
+│   ├── qwen38_multigpu/          # TP4 scheduler/graph adapters and experiment drivers
 │   ├── adaptive_policy.py
 │   ├── fit_adaptive_policy.py
 │   ├── simulate_adaptive_policy.py
 │   └── spec_decode_microbench.py
 ├── configs/
+│   ├── qwen38_uniform_budget.json
 │   ├── adaptive_spec_policy.json
 │   └── qwen3_spec_benchmark.env.example
 ├── reports/
+│   ├── qwen38_dspark_tp4_20261003.md
+│   ├── qwen38_dspark_closure_20261003.md
+│   ├── qwen38_dspark_interview.md
 │   ├── adaptive_policy.md
 │   ├── deployment_notes.md
 │   ├── dspark_reproduction.md
@@ -319,6 +381,7 @@ Expected output:
 │   ├── vllm026_dspark_32b_cross_target.md
 │   └── vllm026_dspark_serving_validation.md
 ├── results/
+│   ├── qwen38_multigpu_20261003/ # summaries, workload, SHA-256 manifest, gzip records
 │   ├── adaptive_policy_decisions.csv
 │   ├── deepspec_qwen3_8b_acceptance.csv
 │   ├── serving_concurrency_ladder.csv
@@ -343,11 +406,19 @@ Original experiments were run on:
 - DSpark / DFlash / EAGLE3 official or open checkpoints
 - vLLM / SGLang OpenAI-compatible serving interfaces
 
+The latest Qwen3.8 experiment uses four cards from the A30 node (TP4,
+PCIe PHB/PIX, no NVLink), vLLM 0.29.0, Torch 2.13.0, FlashInfer 0.6.18,
+BF16 weights, and FP32 GDN state. Runtime and model revisions are pinned in
+[`environment.json`](results/qwen38_multigpu_20261003/environment.json).
+
 The scripts are parameterized through environment variables so the benchmark
 can be rerun on different GPU topologies, model paths, and serving backends.
 
 ## Reports
 
+- [Qwen3.8 TP4 integration and ablations](reports/qwen38_dspark_tp4_20261003.md)
+- [Qwen3.8 direct A/B, capacity, and greedy diagnostics](reports/qwen38_dspark_closure_20261003.md)
+- [Qwen3.8 implementation and reproduction guide](benchmark/qwen38_multigpu/README.md)
 - [DSpark reproduction report](reports/dspark_reproduction.md)
 - [Native DSpark serving validation](reports/vllm026_dspark_serving_validation.md)
 - [Qwen3-32B cross-target stress test](reports/vllm026_dspark_32b_cross_target.md)
@@ -356,6 +427,13 @@ can be rerun on different GPU topologies, model paths, and serving backends.
 - [Deployment notes](reports/deployment_notes.md)
 
 ## Scope and Limitations
+
+The new Qwen3.8 experiment uses a **27B target, a matched DSpark drafter, and TP4 only** on
+vLLM 0.29.0. Its verification-budget adapter is distinct from the older
+baseline/speculative routing policy; no automatic Qwen3.8 AR fallback has been
+implemented or measured. Timing excludes loading, graph capture, and separate
+profiling/decision diagnostics. These are finite closed-loop request groups,
+not production QPS or a production deployment claim.
 
 The original full serving matrix predates native DSpark support and uses
 AngelSlim EAGLE3 checkpoints. The newer vLLM 0.26.0 validation adds a matched

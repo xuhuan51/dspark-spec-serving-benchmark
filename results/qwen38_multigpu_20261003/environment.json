@@ -1,0 +1,25 @@
+{
+  "packages": {
+    "flashinfer-python": "0.6.18",
+    "vllm": "0.29.0",
+    "numpy": "2.2.6",
+    "safetensors": "0.8.0",
+    "triton": "3.7.1",
+    "transformers": "5.16.1",
+    "torch": "2.13.0"
+  },
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "draft": {
+    "repo": "RedHatAI/Qwen3.8-27B-speculator.dspark",
+    "revision": "87ca2fdc67f316f6c1f9ebc7ef7bbb0ad299a4ce",
+    "bytes": 3976869890,
+    "sha256": "6cf6f33fbb2dfd7e74f8009132f0a2a2b4c71cd6cce9360a7d4145c9218f1781",
+    "download_seconds": 1945.2153823319823,
+    "method": "validated concurrent HTTP ranges"
+  },
+  "files": {
+    "vllm/v1/worker/gpu/cudagraph_utils.py": "024d0570b1808c2baa47ac0ebeb5407eeaf8dcaa847f55e844769038cc48caad",
+    "vllm/v1/attention/backends/gdn_attn.py": "c65552d9aad86472544033d44ad8a872221a83e6b60ba9918cc049ab0c580c7c",
+    "vllm/v1/worker/gpu/spec_decode/adaptive_verification.py": "f31f039ad279cdc25933b6b769ed06d3a333e9892740d3429d519b2a9ed0c2d7"
+  }
+}

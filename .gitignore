@@ -10,3 +10,7 @@ logs/
 
 .DS_Store
 
+# Qwen3.8 TP4 experiment outputs and separately installed runtime
+benchmark/qwen38_multigpu/runs/
+benchmark/qwen38_multigpu/runtime/
+benchmark/qwen38_multigpu/.experiment.lock

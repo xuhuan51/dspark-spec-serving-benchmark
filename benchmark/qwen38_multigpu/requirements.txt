@@ -1,0 +1,9 @@
+# Separate environment for the recorded vLLM 0.29.0 experiment.
+vllm==0.29.0
+torch==2.13.0
+flashinfer-python==0.6.18
+transformers==5.16.1
+triton==3.7.1
+safetensors==0.8.0
+numpy==2.2.6
+aiohttp>=3.9,<4

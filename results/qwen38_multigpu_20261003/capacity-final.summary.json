@@ -1,0 +1,4511 @@
+{
+  "source": "/home/liuguangli/learn-ai-infra/serving-benchmark/dspark-multigpu-lab/runs/20261003/capacity-final.json",
+  "complete": true,
+  "capacity": [
+    {
+      "mode": "ar",
+      "layout": {
+        "event": "layout",
+        "num_blocks": 376,
+        "watermark_blocks": 0,
+        "num_spec_tokens": 0,
+        "groups": [
+          {
+            "group": 0,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 802816,
+            "layers": 16,
+            "num_speculative_blocks": 0,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 1,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 802816,
+            "layers": 16,
+            "num_speculative_blocks": 0,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 2,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 802816,
+            "layers": 16,
+            "num_speculative_blocks": 0,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 3,
+            "manager": "FullAttentionManager",
+            "spec": "FullAttentionSpec",
+            "block_size": 784,
+            "page_size_bytes": 802816,
+            "layers": 16
+          }
+        ]
+      },
+      "allocation_attempts": 2062,
+      "denials": 0,
+      "denied_requests": 0,
+      "first_admissions": [
+        {
+          "request_id": "cmpl-9284f0a4c962313d-0-9b256dc7",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 375,
+          "blocks_consumed": 6
+        },
+        {
+          "request_id": "cmpl-9f1cce9fdf9dd375-0-87d5cee8",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 369,
+          "blocks_consumed": 6
+        },
+        {
+          "request_id": "cmpl-8b1431ffe88ef8f1-0-8f36dd04",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 363,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-adfa95eb8e331d94-0-8dcbe78b",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 357,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-983f6b13e4505024-0-8bd10807",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 351,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-b46ff7a939f914a5-0-89f15ee7",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 345,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-9f1ef475f6d81eaa-0-8777638f",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 339,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-b1fce11f94907bfe-0-89b9fa86",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 333,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-a4dea7a2af45f1ab-0-a440b4b6",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 327,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-803479254e62f3b3-0-adb23c18",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 321,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-8ce98a4b9e611d09-0-a20b1040",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 315,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-bd5832b055203fef-0-9c8038c1",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 309,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-9c8f254ab2f5ea9a-0-99f545e5",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 303,
+          "blocks_consumed": 4
+        },
+        {
+          "request_id": "cmpl-85522f3c0cbd1b95-0-955ad2d5",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 297,
+          "blocks_consumed": 5
+        },
+        {
+          "request_id": "cmpl-9be1f137beca2354-0-92105424",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 291,
+          "blocks_consumed": 5
+        },
+        {
+          "request_id": "cmpl-96867f45a20e7e72-0-b11c98d8",
+          "required_blocks": 6,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 1
+            },
+            {
+              "group": 3,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 285,
+          "blocks_consumed": 5
+        }
+      ],
+      "denial_examples": [],
+      "admission_component_histogram": {
+        "MambaManager": {
+          "1": 48
+        },
+        "FullAttentionManager": {
+          "3": 16
+        }
+      }
+    },
+    {
+      "mode": "fixed",
+      "layout": {
+        "event": "layout",
+        "num_blocks": 1134,
+        "watermark_blocks": 0,
+        "num_spec_tokens": 7,
+        "groups": [
+          {
+            "group": 0,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 5,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 1,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 5,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 2,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 5,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 3,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 5,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 4,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 5,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 5,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 5,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 6,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 5,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 7,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 5,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 8,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 4,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 9,
+            "manager": "MambaManager",
+            "spec": "MambaSpec",
+            "block_size": 4096,
+            "page_size_bytes": 851968,
+            "layers": 4,
+            "num_speculative_blocks": 7,
+            "mamba_cache_mode": "none"
+          },
+          {
+            "group": 10,
+            "manager": "FullAttentionManager",
+            "spec": "FullAttentionSpec",
+            "block_size": 832,
+            "page_size_bytes": 851968,
+            "layers": 4
+          },
+          {
+            "group": 11,
+            "manager": "FullAttentionManager",
+            "spec": "FullAttentionSpec",
+            "block_size": 832,
+            "page_size_bytes": 851968,
+            "layers": 4
+          },
+          {
+            "group": 12,
+            "manager": "FullAttentionManager",
+            "spec": "FullAttentionSpec",
+            "block_size": 832,
+            "page_size_bytes": 851968,
+            "layers": 4
+          },
+          {
+            "group": 13,
+            "manager": "FullAttentionManager",
+            "spec": "FullAttentionSpec",
+            "block_size": 832,
+            "page_size_bytes": 851968,
+            "layers": 4
+          },
+          {
+            "group": 14,
+            "manager": "SlidingWindowManager",
+            "spec": "SlidingWindowSpec",
+            "block_size": 832,
+            "page_size_bytes": 851968,
+            "layers": 5
+          }
+        ]
+      },
+      "allocation_attempts": 730,
+      "denials": 34,
+      "denied_requests": 3,
+      "first_admissions": [
+        {
+          "request_id": "cmpl-aa426b0218b3ca53-0-8d392a32",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 1133,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-998b590107180f47-0-96170c19",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 1038,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-bf6d79b471fda234-0-ad51ed33",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 943,
+          "blocks_consumed": 85
+        },
+        {
+          "request_id": "cmpl-b7d14a5714e735ba-0-94e37316",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 848,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-9a8017d9834d41d0-0-ba01a3c6",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 753,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-9d4d7d3f93c528ac-0-b46c2f72",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 658,
+          "blocks_consumed": 85
+        },
+        {
+          "request_id": "cmpl-ac03dd5eac725435-0-a146599e",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 563,
+          "blocks_consumed": 85
+        },
+        {
+          "request_id": "cmpl-bf4991401b123e3c-0-b369f171",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 468,
+          "blocks_consumed": 85
+        },
+        {
+          "request_id": "cmpl-9f37914d68423052-0-95051288",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 373,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-a5ade5dc4ca4ad8f-0-bdab7886",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 278,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-832fcbff093b1812-0-88fc0643",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 183,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-a02f8ec013a60ee7-0-a10de938",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 278,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-ab999036a471d343-0-8a7739aa",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 183,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-826b94f1edaaaeb2-0-b5611ffb",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 183,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-a8c903a132b59533-0-9ccd492f",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 183,
+          "blocks_consumed": 95
+        },
+        {
+          "request_id": "cmpl-9516b3d7d54137fb-0-9450f0e4",
+          "required_blocks": 95,
+          "components": [
+            {
+              "group": 0,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 1,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 2,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 3,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 4,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 5,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 6,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 7,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 8,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 9,
+              "manager": "MambaManager",
+              "blocks": 8
+            },
+            {
+              "group": 10,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 11,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 12,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 13,
+              "manager": "FullAttentionManager",
+              "blocks": 3
+            },
+            {
+              "group": 14,
+              "manager": "SlidingWindowManager",
+              "blocks": 3
+            }
+          ],
+          "free_before": 183,
+          "blocks_consumed": 95
+        }
+      ],
+      "denial_examples": [
+        {
+          "event": "allocate",
+          "request_id": "cmpl-a02f8ec013a60ee7-0-a10de938",
+          "status": "WAITING",
+          "running": 11,
+          "waiting": 5,
+          "free_before": 88,
+          "free_after": 88,
+          "computed_tokens": 0,
+          "prompt_tokens": 1935,
+          "success": false,
+          "queries": [
+            {
+              "required_blocks": 95,
+              "admission_cap": true,
+              "components": [
+                {
+                  "group": 0,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 1,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 2,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 3,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 4,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 5,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 6,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 7,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 8,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 9,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 10,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 11,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 12,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 13,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 14,
+                  "manager": "SlidingWindowManager",
+                  "blocks": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "allocate",
+          "request_id": "cmpl-a02f8ec013a60ee7-0-a10de938",
+          "status": "WAITING",
+          "running": 11,
+          "waiting": 5,
+          "free_before": 88,
+          "free_after": 88,
+          "computed_tokens": 0,
+          "prompt_tokens": 1935,
+          "success": false,
+          "queries": [
+            {
+              "required_blocks": 95,
+              "admission_cap": true,
+              "components": [
+                {
+                  "group": 0,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 1,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 2,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 3,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 4,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 5,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 6,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 7,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 8,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 9,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 10,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 11,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 12,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 13,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 14,
+                  "manager": "SlidingWindowManager",
+                  "blocks": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "allocate",
+          "request_id": "cmpl-a02f8ec013a60ee7-0-a10de938",
+          "status": "WAITING",
+          "running": 11,
+          "waiting": 5,
+          "free_before": 88,
+          "free_after": 88,
+          "computed_tokens": 0,
+          "prompt_tokens": 1935,
+          "success": false,
+          "queries": [
+            {
+              "required_blocks": 95,
+              "admission_cap": true,
+              "components": [
+                {
+                  "group": 0,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 1,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 2,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 3,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 4,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 5,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 6,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 7,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 8,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 9,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 10,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 11,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 12,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 13,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 14,
+                  "manager": "SlidingWindowManager",
+                  "blocks": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "allocate",
+          "request_id": "cmpl-a02f8ec013a60ee7-0-a10de938",
+          "status": "WAITING",
+          "running": 11,
+          "waiting": 5,
+          "free_before": 88,
+          "free_after": 88,
+          "computed_tokens": 0,
+          "prompt_tokens": 1935,
+          "success": false,
+          "queries": [
+            {
+              "required_blocks": 95,
+              "admission_cap": true,
+              "components": [
+                {
+                  "group": 0,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 1,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 2,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 3,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 4,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 5,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 6,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 7,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 8,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 9,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 10,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 11,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 12,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 13,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 14,
+                  "manager": "SlidingWindowManager",
+                  "blocks": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "allocate",
+          "request_id": "cmpl-a02f8ec013a60ee7-0-a10de938",
+          "status": "WAITING",
+          "running": 11,
+          "waiting": 5,
+          "free_before": 88,
+          "free_after": 88,
+          "computed_tokens": 0,
+          "prompt_tokens": 1935,
+          "success": false,
+          "queries": [
+            {
+              "required_blocks": 95,
+              "admission_cap": true,
+              "components": [
+                {
+                  "group": 0,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 1,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 2,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 3,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 4,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 5,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 6,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 7,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 8,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 9,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 10,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 11,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 12,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 13,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 14,
+                  "manager": "SlidingWindowManager",
+                  "blocks": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "allocate",
+          "request_id": "cmpl-a02f8ec013a60ee7-0-a10de938",
+          "status": "WAITING",
+          "running": 11,
+          "waiting": 5,
+          "free_before": 88,
+          "free_after": 88,
+          "computed_tokens": 0,
+          "prompt_tokens": 1935,
+          "success": false,
+          "queries": [
+            {
+              "required_blocks": 95,
+              "admission_cap": true,
+              "components": [
+                {
+                  "group": 0,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 1,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 2,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 3,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 4,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 5,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 6,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 7,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 8,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 9,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 10,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 11,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 12,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 13,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 14,
+                  "manager": "SlidingWindowManager",
+                  "blocks": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "allocate",
+          "request_id": "cmpl-a02f8ec013a60ee7-0-a10de938",
+          "status": "WAITING",
+          "running": 11,
+          "waiting": 5,
+          "free_before": 88,
+          "free_after": 88,
+          "computed_tokens": 0,
+          "prompt_tokens": 1935,
+          "success": false,
+          "queries": [
+            {
+              "required_blocks": 95,
+              "admission_cap": true,
+              "components": [
+                {
+                  "group": 0,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 1,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 2,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 3,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 4,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 5,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 6,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 7,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 8,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 9,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 10,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 11,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 12,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 13,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 14,
+                  "manager": "SlidingWindowManager",
+                  "blocks": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "allocate",
+          "request_id": "cmpl-a02f8ec013a60ee7-0-a10de938",
+          "status": "WAITING",
+          "running": 11,
+          "waiting": 5,
+          "free_before": 88,
+          "free_after": 88,
+          "computed_tokens": 0,
+          "prompt_tokens": 1935,
+          "success": false,
+          "queries": [
+            {
+              "required_blocks": 95,
+              "admission_cap": true,
+              "components": [
+                {
+                  "group": 0,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 1,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 2,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 3,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 4,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 5,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 6,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 7,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 8,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 9,
+                  "manager": "MambaManager",
+                  "blocks": 8
+                },
+                {
+                  "group": 10,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 11,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 12,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 13,
+                  "manager": "FullAttentionManager",
+                  "blocks": 3
+                },
+                {
+                  "group": 14,
+                  "manager": "SlidingWindowManager",
+                  "blocks": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "admission_component_histogram": {
+        "MambaManager": {
+          "8": 160
+        },
+        "SlidingWindowManager": {
+          "3": 16
+        },
+        "FullAttentionManager": {
+          "3": 64
+        }
+      }
+    }
+  ],
+  "decision_coverage": [
+    {
+      "mode": "ar",
+      "requests": 32,
+      "checked_tokens": 4096,
+      "non_argmax_tokens": 0,
+      "non_maximum_tokens": 0,
+      "top_logit_ties": 63
+    },
+    {
+      "mode": "fixed",
+      "requests": 16,
+      "checked_tokens": 2048,
+      "non_argmax_tokens": 0,
+      "non_maximum_tokens": 0,
+      "top_logit_ties": 38
+    }
+  ],
+  "autoregressive_batch_control": {
+    "comparison": "AR serial/concurrent, 16 prompts",
+    "requests": 16,
+    "identical_sequences": 7,
+    "pairs": [
+      {
+        "index": 0,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 1,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 93,
+        "left": {
+          "output_index": 93,
+          "absolute_position": 2057,
+          "token": 725,
+          "argmax": 725,
+          "top_tokens": [
+            725,
+            14195,
+            19013,
+            8341,
+            29784,
+            5467,
+            14217,
+            33129
+          ],
+          "top_logits": [
+            20.625,
+            20.625,
+            19.875,
+            19.75,
+            18.25,
+            16.75,
+            16.5,
+            16.0
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 1,
+          "num_tokens": 1,
+          "captured_tokens": 1,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 93,
+          "absolute_position": 2057,
+          "token": 14195,
+          "argmax": 14195,
+          "top_tokens": [
+            14195,
+            725,
+            19013,
+            8341,
+            29784,
+            5467,
+            14217,
+            33129
+          ],
+          "top_logits": [
+            20.75,
+            20.625,
+            19.875,
+            19.75,
+            18.25,
+            16.75,
+            16.375,
+            16.125
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 93,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 2,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 3,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 40,
+        "left": {
+          "output_index": 40,
+          "absolute_position": 2040,
+          "token": 13900,
+          "argmax": 13900,
+          "top_tokens": [
+            13900,
+            18021,
+            6278,
+            303,
+            5269,
+            11792,
+            533,
+            328
+          ],
+          "top_logits": [
+            18.0,
+            18.0,
+            17.625,
+            16.75,
+            16.625,
+            16.5,
+            16.375,
+            16.375
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 1,
+          "num_tokens": 1,
+          "captured_tokens": 1,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 40,
+          "absolute_position": 2040,
+          "token": 18021,
+          "argmax": 18021,
+          "top_tokens": [
+            18021,
+            13900,
+            6278,
+            303,
+            11792,
+            5269,
+            533,
+            328
+          ],
+          "top_logits": [
+            18.0,
+            17.875,
+            17.5,
+            16.75,
+            16.5,
+            16.5,
+            16.375,
+            16.25
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 40,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 4,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 5,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 37,
+        "left": {
+          "output_index": 37,
+          "absolute_position": 1893,
+          "token": 13,
+          "argmax": 13,
+          "top_tokens": [
+            13,
+            11,
+            310,
+            318,
+            1040,
+            1083,
+            440,
+            948
+          ],
+          "top_logits": [
+            22.625,
+            22.5,
+            18.375,
+            16.75,
+            16.625,
+            16.125,
+            16.125,
+            14.8125
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 1,
+          "num_tokens": 1,
+          "captured_tokens": 1,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 37,
+          "absolute_position": 1893,
+          "token": 11,
+          "argmax": 11,
+          "top_tokens": [
+            13,
+            11,
+            310,
+            318,
+            1040,
+            1083,
+            440,
+            948
+          ],
+          "top_logits": [
+            22.5,
+            22.5,
+            18.375,
+            16.75,
+            16.625,
+            16.0,
+            16.0,
+            14.75
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 37,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.125,
+        "right_margin": 0.0,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 6,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 4,
+        "left": {
+          "output_index": 4,
+          "absolute_position": 2018,
+          "token": 11,
+          "argmax": 11,
+          "top_tokens": [
+            13,
+            11,
+            310,
+            1495,
+            26,
+            321,
+            353,
+            48952
+          ],
+          "top_logits": [
+            23.125,
+            23.125,
+            20.75,
+            17.25,
+            16.875,
+            15.125,
+            14.375,
+            14.25
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 1,
+          "num_tokens": 1,
+          "captured_tokens": 1,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 4,
+          "absolute_position": 2018,
+          "token": 13,
+          "argmax": 13,
+          "top_tokens": [
+            13,
+            11,
+            310,
+            1495,
+            26,
+            321,
+            353,
+            48952
+          ],
+          "top_logits": [
+            23.25,
+            23.125,
+            20.75,
+            17.375,
+            16.875,
+            15.1875,
+            14.375,
+            14.3125
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 12,
+          "num_tokens": 2048,
+          "captured_tokens": 2048,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 4,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 7,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 8,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 106,
+        "left": {
+          "output_index": 106,
+          "absolute_position": 2056,
+          "token": 33,
+          "argmax": 33,
+          "top_tokens": [
+            33,
+            48554,
+            28081,
+            26677,
+            608,
+            54,
+            47,
+            50
+          ],
+          "top_logits": [
+            20.25,
+            20.25,
+            20.25,
+            19.625,
+            19.375,
+            19.125,
+            18.5,
+            18.375
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 1,
+          "num_tokens": 1,
+          "captured_tokens": 1,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 106,
+          "absolute_position": 2056,
+          "token": 28081,
+          "argmax": 28081,
+          "top_tokens": [
+            28081,
+            33,
+            48554,
+            26677,
+            608,
+            54,
+            47,
+            50
+          ],
+          "top_logits": [
+            20.375,
+            20.25,
+            20.125,
+            19.5,
+            19.375,
+            19.125,
+            18.5,
+            18.25
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 106,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 9,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 10,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 11,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 24,
+        "left": {
+          "output_index": 24,
+          "absolute_position": 1959,
+          "token": 1439,
+          "argmax": 1439,
+          "top_tokens": [
+            1439,
+            449,
+            411,
+            310,
+            3520,
+            264,
+            353,
+            279
+          ],
+          "top_logits": [
+            22.125,
+            21.875,
+            21.0,
+            20.0,
+            19.25,
+            19.0,
+            18.375,
+            17.75
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 1,
+          "num_tokens": 1,
+          "captured_tokens": 1,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 24,
+          "absolute_position": 1959,
+          "token": 449,
+          "argmax": 449,
+          "top_tokens": [
+            449,
+            1439,
+            411,
+            310,
+            3520,
+            264,
+            353,
+            279
+          ],
+          "top_logits": [
+            22.125,
+            22.125,
+            21.0,
+            20.0,
+            19.25,
+            19.0,
+            18.375,
+            17.75
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 24,
+        "maximum_shared_topk_logit_change": 0.25,
+        "left_margin": 0.25,
+        "right_margin": 0.0,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 12,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 51,
+        "left": {
+          "output_index": 51,
+          "absolute_position": 1854,
+          "token": 1521,
+          "argmax": 1521,
+          "top_tokens": [
+            4777,
+            1521,
+            8106,
+            4016,
+            6807,
+            424,
+            488,
+            539
+          ],
+          "top_logits": [
+            24.125,
+            24.125,
+            21.25,
+            20.875,
+            18.875,
+            18.5,
+            18.5,
+            18.125
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 1,
+          "num_tokens": 1,
+          "captured_tokens": 1,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 51,
+          "absolute_position": 1854,
+          "token": 4777,
+          "argmax": 4777,
+          "top_tokens": [
+            4777,
+            1521,
+            8106,
+            4016,
+            6807,
+            424,
+            488,
+            539
+          ],
+          "top_logits": [
+            24.125,
+            24.0,
+            21.25,
+            20.75,
+            19.0,
+            18.625,
+            18.375,
+            18.125
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 51,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 13,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 14,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 72,
+        "left": {
+          "output_index": 72,
+          "absolute_position": 2025,
+          "token": 8,
+          "argmax": 8,
+          "top_tokens": [
+            18894,
+            8,
+            43449,
+            11965,
+            681,
+            21568,
+            466,
+            4924
+          ],
+          "top_logits": [
+            18.625,
+            18.625,
+            18.375,
+            18.0,
+            17.875,
+            16.125,
+            15.9375,
+            15.375
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 1,
+          "num_tokens": 1,
+          "captured_tokens": 1,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 72,
+          "absolute_position": 2025,
+          "token": 18894,
+          "argmax": 18894,
+          "top_tokens": [
+            18894,
+            8,
+            43449,
+            11965,
+            681,
+            21568,
+            466,
+            4924
+          ],
+          "top_logits": [
+            18.75,
+            18.625,
+            18.375,
+            18.0,
+            17.875,
+            16.125,
+            15.9375,
+            15.375
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 72,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 15,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 80,
+        "left": {
+          "output_index": 80,
+          "absolute_position": 2060,
+          "token": 8476,
+          "argmax": 8476,
+          "top_tokens": [
+            8476,
+            4939,
+            2444,
+            17023,
+            10732,
+            2972,
+            1746,
+            3790
+          ],
+          "top_logits": [
+            20.25,
+            20.125,
+            20.125,
+            19.0,
+            19.0,
+            18.875,
+            18.625,
+            18.0
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 1,
+          "num_tokens": 1,
+          "captured_tokens": 1,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 80,
+          "absolute_position": 2060,
+          "token": 4939,
+          "argmax": 4939,
+          "top_tokens": [
+            8476,
+            4939,
+            2444,
+            10732,
+            2972,
+            17023,
+            1746,
+            3790
+          ],
+          "top_logits": [
+            20.25,
+            20.25,
+            20.125,
+            19.0,
+            19.0,
+            18.875,
+            18.625,
+            18.0
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 80,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.125,
+        "right_margin": 0.0,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      }
+    ]
+  },
+  "native_comparison": {
+    "comparison": "AR/native, c=16 capacity probe",
+    "requests": 16,
+    "identical_sequences": 4,
+    "pairs": [
+      {
+        "index": 0,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 46,
+        "left": {
+          "output_index": 46,
+          "absolute_position": 1847,
+          "token": 5323,
+          "argmax": 5323,
+          "top_tokens": [
+            10222,
+            5323,
+            2972,
+            348,
+            5615,
+            11407,
+            10728,
+            328
+          ],
+          "top_logits": [
+            25.125,
+            25.125,
+            22.625,
+            19.875,
+            18.125,
+            17.5,
+            16.625,
+            16.125
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 46,
+          "absolute_position": 1847,
+          "token": 10222,
+          "argmax": 10222,
+          "top_tokens": [
+            10222,
+            5323,
+            2972,
+            348,
+            5615,
+            11407,
+            10728,
+            328
+          ],
+          "top_logits": [
+            25.125,
+            25.0,
+            22.75,
+            19.875,
+            18.25,
+            17.375,
+            16.625,
+            16.125
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 11,
+          "num_tokens": 88,
+          "captured_tokens": 128,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 46,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 1,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 93,
+        "left": {
+          "output_index": 93,
+          "absolute_position": 2057,
+          "token": 14195,
+          "argmax": 14195,
+          "top_tokens": [
+            14195,
+            725,
+            19013,
+            8341,
+            29784,
+            5467,
+            14217,
+            33129
+          ],
+          "top_logits": [
+            20.75,
+            20.625,
+            19.875,
+            19.75,
+            18.25,
+            16.75,
+            16.375,
+            16.125
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 93,
+          "absolute_position": 2057,
+          "token": 725,
+          "argmax": 725,
+          "top_tokens": [
+            725,
+            14195,
+            19013,
+            8341,
+            29784,
+            5467,
+            14217,
+            33129
+          ],
+          "top_logits": [
+            20.625,
+            20.625,
+            20.0,
+            19.75,
+            18.25,
+            16.75,
+            16.5,
+            16.0
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 11,
+          "num_tokens": 88,
+          "captured_tokens": 128,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 93,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.125,
+        "right_margin": 0.0,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 2,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 24,
+        "left": {
+          "output_index": 24,
+          "absolute_position": 2138,
+          "token": 1149,
+          "argmax": 1149,
+          "top_tokens": [
+            1149,
+            763,
+            1288,
+            1,
+            539,
+            513,
+            321,
+            264
+          ],
+          "top_logits": [
+            16.75,
+            16.625,
+            14.75,
+            12.5625,
+            12.1875,
+            12.1875,
+            12.125,
+            11.9375
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 24,
+          "absolute_position": 2138,
+          "token": 763,
+          "argmax": 763,
+          "top_tokens": [
+            763,
+            1149,
+            1288,
+            1,
+            513,
+            321,
+            539,
+            264
+          ],
+          "top_logits": [
+            16.625,
+            16.625,
+            14.6875,
+            12.4375,
+            12.1875,
+            12.125,
+            12.125,
+            11.875
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 11,
+          "num_tokens": 1982,
+          "captured_tokens": 1982,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 24,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.125,
+        "right_margin": 0.0,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 3,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 40,
+        "left": {
+          "output_index": 40,
+          "absolute_position": 2040,
+          "token": 18021,
+          "argmax": 18021,
+          "top_tokens": [
+            18021,
+            13900,
+            6278,
+            303,
+            11792,
+            5269,
+            533,
+            328
+          ],
+          "top_logits": [
+            18.0,
+            17.875,
+            17.5,
+            16.75,
+            16.5,
+            16.5,
+            16.375,
+            16.25
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 40,
+          "absolute_position": 2040,
+          "token": 13900,
+          "argmax": 13900,
+          "top_tokens": [
+            18021,
+            13900,
+            6278,
+            303,
+            11792,
+            5269,
+            533,
+            328
+          ],
+          "top_logits": [
+            18.0,
+            18.0,
+            17.625,
+            16.75,
+            16.5,
+            16.5,
+            16.5,
+            16.25
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 11,
+          "num_tokens": 88,
+          "captured_tokens": 128,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 40,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.125,
+        "right_margin": 0.0,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 4,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 5,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 37,
+        "left": {
+          "output_index": 37,
+          "absolute_position": 1893,
+          "token": 11,
+          "argmax": 11,
+          "top_tokens": [
+            13,
+            11,
+            310,
+            318,
+            1040,
+            1083,
+            440,
+            948
+          ],
+          "top_logits": [
+            22.5,
+            22.5,
+            18.375,
+            16.75,
+            16.625,
+            16.0,
+            16.0,
+            14.75
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 37,
+          "absolute_position": 1893,
+          "token": 13,
+          "argmax": 13,
+          "top_tokens": [
+            13,
+            11,
+            310,
+            318,
+            1040,
+            1083,
+            440,
+            948
+          ],
+          "top_logits": [
+            22.5,
+            22.375,
+            18.375,
+            16.75,
+            16.5,
+            16.125,
+            16.0,
+            14.75
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 11,
+          "num_tokens": 88,
+          "captured_tokens": 128,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 37,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 6,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 7,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 8,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 42,
+        "left": {
+          "output_index": 42,
+          "absolute_position": 1992,
+          "token": 13,
+          "argmax": 13,
+          "top_tokens": [
+            13,
+            25,
+            466,
+            318,
+            11,
+            321,
+            430,
+            5346
+          ],
+          "top_logits": [
+            22.75,
+            22.75,
+            20.0,
+            19.375,
+            17.75,
+            17.0,
+            15.5,
+            14.9375
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 42,
+          "absolute_position": 1992,
+          "token": 25,
+          "argmax": 25,
+          "top_tokens": [
+            25,
+            13,
+            466,
+            318,
+            11,
+            321,
+            430,
+            5346
+          ],
+          "top_logits": [
+            22.875,
+            22.75,
+            20.125,
+            19.375,
+            17.875,
+            17.125,
+            15.4375,
+            14.9375
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 11,
+          "num_tokens": 88,
+          "captured_tokens": 128,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 42,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 9,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 13,
+        "left": {
+          "output_index": 13,
+          "absolute_position": 1942,
+          "token": 248045,
+          "argmax": 248045,
+          "top_tokens": [
+            248068,
+            248045,
+            74455,
+            248046,
+            846,
+            248044,
+            248059,
+            5619
+          ],
+          "top_logits": [
+            28.125,
+            28.125,
+            26.875,
+            22.75,
+            18.125,
+            17.75,
+            16.375,
+            16.375
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 13,
+          "absolute_position": 1942,
+          "token": 248068,
+          "argmax": 248068,
+          "top_tokens": [
+            248068,
+            248045,
+            74455,
+            248046,
+            846,
+            248044,
+            248059,
+            5619
+          ],
+          "top_logits": [
+            28.375,
+            28.25,
+            27.125,
+            22.75,
+            18.25,
+            17.75,
+            16.5,
+            16.375
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 11,
+          "num_tokens": 88,
+          "captured_tokens": 128,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 13,
+        "maximum_shared_topk_logit_change": 0.25,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 10,
+        "identical": true,
+        "tokens": 128,
+        "first_difference_index": null
+      },
+      {
+        "index": 11,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 24,
+        "left": {
+          "output_index": 24,
+          "absolute_position": 1959,
+          "token": 449,
+          "argmax": 449,
+          "top_tokens": [
+            449,
+            1439,
+            411,
+            310,
+            3520,
+            264,
+            353,
+            279
+          ],
+          "top_logits": [
+            22.125,
+            22.125,
+            21.0,
+            20.0,
+            19.25,
+            19.0,
+            18.375,
+            17.75
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 24,
+          "absolute_position": 1959,
+          "token": 1439,
+          "argmax": 1439,
+          "top_tokens": [
+            1439,
+            449,
+            411,
+            310,
+            3520,
+            264,
+            353,
+            279
+          ],
+          "top_logits": [
+            22.125,
+            22.0,
+            21.0,
+            20.0,
+            19.25,
+            19.0,
+            18.375,
+            17.75
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 10,
+          "num_tokens": 193,
+          "captured_tokens": 193,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 24,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 12,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 71,
+        "left": {
+          "output_index": 71,
+          "absolute_position": 1874,
+          "token": 9,
+          "argmax": 9,
+          "top_tokens": [
+            12,
+            9,
+            16,
+            169286,
+            332,
+            13962,
+            2592,
+            29
+          ],
+          "top_logits": [
+            24.375,
+            24.375,
+            23.375,
+            15.5625,
+            15.5625,
+            14.875,
+            14.875,
+            14.8125
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 71,
+          "absolute_position": 1874,
+          "token": 12,
+          "argmax": 12,
+          "top_tokens": [
+            12,
+            9,
+            16,
+            332,
+            169286,
+            2592,
+            13962,
+            29
+          ],
+          "top_logits": [
+            24.375,
+            24.25,
+            23.375,
+            15.5,
+            15.4375,
+            14.875,
+            14.8125,
+            14.8125
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 5,
+          "num_tokens": 40,
+          "captured_tokens": 64,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 71,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.0,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 13,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 54,
+        "left": {
+          "output_index": 54,
+          "absolute_position": 1854,
+          "token": 1928,
+          "argmax": 1928,
+          "top_tokens": [
+            1928,
+            7831,
+            8751,
+            59682,
+            5269,
+            71677,
+            33513,
+            7143
+          ],
+          "top_logits": [
+            21.0,
+            20.875,
+            20.375,
+            18.625,
+            18.375,
+            18.0,
+            17.75,
+            16.75
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 54,
+          "absolute_position": 1854,
+          "token": 7831,
+          "argmax": 7831,
+          "top_tokens": [
+            7831,
+            1928,
+            8751,
+            59682,
+            5269,
+            71677,
+            33513,
+            7143
+          ],
+          "top_logits": [
+            21.0,
+            20.875,
+            20.5,
+            18.625,
+            18.5,
+            18.125,
+            17.625,
+            16.75
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 7,
+          "num_tokens": 56,
+          "captured_tokens": 64,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 54,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.125,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 14,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 72,
+        "left": {
+          "output_index": 72,
+          "absolute_position": 2025,
+          "token": 18894,
+          "argmax": 18894,
+          "top_tokens": [
+            18894,
+            8,
+            43449,
+            11965,
+            681,
+            21568,
+            466,
+            4924
+          ],
+          "top_logits": [
+            18.75,
+            18.625,
+            18.375,
+            18.0,
+            17.875,
+            16.125,
+            15.9375,
+            15.375
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 72,
+          "absolute_position": 2025,
+          "token": 8,
+          "argmax": 8,
+          "top_tokens": [
+            18894,
+            8,
+            43449,
+            11965,
+            681,
+            21568,
+            466,
+            4924
+          ],
+          "top_logits": [
+            18.75,
+            18.75,
+            18.375,
+            18.0,
+            17.875,
+            16.125,
+            16.0,
+            15.375
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 5,
+          "num_tokens": 40,
+          "captured_tokens": 64,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 72,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.125,
+        "right_margin": 0.0,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      },
+      {
+        "index": 15,
+        "identical": false,
+        "tokens": 128,
+        "first_difference_index": 35,
+        "left": {
+          "output_index": 35,
+          "absolute_position": 2015,
+          "token": 1061,
+          "argmax": 1061,
+          "top_tokens": [
+            1061,
+            1049,
+            561,
+            5788,
+            11746,
+            83772,
+            5514,
+            271
+          ],
+          "top_logits": [
+            22.625,
+            22.5,
+            21.125,
+            20.625,
+            20.0,
+            18.625,
+            18.25,
+            18.0
+          ],
+          "rank": 1,
+          "sampler": "ar",
+          "num_logits": 1,
+          "num_reqs": 16,
+          "num_tokens": 16,
+          "captured_tokens": 16,
+          "dtype": "torch.bfloat16"
+        },
+        "right": {
+          "output_index": 35,
+          "absolute_position": 2015,
+          "token": 1049,
+          "argmax": 1049,
+          "top_tokens": [
+            1049,
+            1061,
+            561,
+            5788,
+            11746,
+            83772,
+            5514,
+            271
+          ],
+          "top_logits": [
+            22.625,
+            22.5,
+            21.125,
+            20.625,
+            19.875,
+            18.625,
+            18.125,
+            17.875
+          ],
+          "rank": 3,
+          "sampler": "verify",
+          "num_logits": 8,
+          "num_reqs": 5,
+          "num_tokens": 40,
+          "captured_tokens": 64,
+          "dtype": "torch.bfloat16"
+        },
+        "common_prefix_tokens": 35,
+        "maximum_shared_topk_logit_change": 0.125,
+        "left_margin": 0.125,
+        "right_margin": 0.125,
+        "changed_argmax": true,
+        "each_emitted_token_is_own_argmax": true
+      }
+    ]
+  },
+  "scope": "Actual allocation component counts, no isolated GPU timing of state save/rollback. Diagnostics do not establish universal distribution preservation."
+}

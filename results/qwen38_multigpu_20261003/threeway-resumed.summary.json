@@ -1,0 +1,3452 @@
+{
+  "source": "/home/liuguangli/learn-ai-infra/serving-benchmark/dspark-multigpu-lab/runs/20261003/threeway-resumed.json",
+  "complete": true,
+  "settings": {
+    "rounds": 5,
+    "concurrency": 16,
+    "requests": 16,
+    "output_tokens": 256,
+    "sample_offset": 16,
+    "kv_gib": 4.5
+  },
+  "modes": [
+    {
+      "mode": "ar",
+      "tokens_per_second": 172.9892244617247,
+      "tpot_ms": 67.8472127496064
+    },
+    {
+      "mode": "native",
+      "tokens_per_second": 158.73391825992124,
+      "tpot_ms": 47.63951008253749,
+      "target_padding_ratio": 1.4126559714795008
+    },
+    {
+      "mode": "graphs",
+      "tokens_per_second": 157.69662134445463,
+      "tpot_ms": 46.847802356762045,
+      "target_padding_ratio": 1.093836246550138
+    },
+    {
+      "mode": "budget",
+      "tokens_per_second": 170.63605012977024,
+      "tpot_ms": 40.38009799185994,
+      "target_padding_ratio": 1.1033715012722647
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison": "native/ar",
+      "rounds": 5,
+      "pairs": [
+        {
+          "round": 0,
+          "throughput_ratio": 0.9506080314527722,
+          "tpot_reduction": 0.33369825427843713
+        },
+        {
+          "round": 1,
+          "throughput_ratio": 0.9176086842284337,
+          "tpot_reduction": 0.29774692982517514
+        },
+        {
+          "round": 2,
+          "throughput_ratio": 0.9394486047611156,
+          "tpot_reduction": 0.30722120262290153
+        },
+        {
+          "round": 3,
+          "throughput_ratio": 0.7661972380452151,
+          "tpot_reduction": 0.1878775273239669
+        },
+        {
+          "round": 4,
+          "throughput_ratio": 0.9305181228495645,
+          "tpot_reduction": 0.3055942130347493
+        }
+      ],
+      "throughput_ratio": 0.9305181228495645,
+      "throughput_ratio_range": [
+        0.7661972380452151,
+        0.9506080314527722
+      ],
+      "tpot_reduction": 0.3055942130347493
+    },
+    {
+      "comparison": "graphs/ar",
+      "rounds": 5,
+      "pairs": [
+        {
+          "round": 0,
+          "throughput_ratio": 0.9782502556556222,
+          "tpot_reduction": 0.37170745078156886
+        },
+        {
+          "round": 1,
+          "throughput_ratio": 0.8703667298142203,
+          "tpot_reduction": 0.26232146125139333
+        },
+        {
+          "round": 2,
+          "throughput_ratio": 0.9481361767140792,
+          "tpot_reduction": 0.3378521142439571
+        },
+        {
+          "round": 3,
+          "throughput_ratio": 0.9034779469255769,
+          "tpot_reduction": 0.29777916068115207
+        },
+        {
+          "round": 4,
+          "throughput_ratio": 0.9268618181418384,
+          "tpot_reduction": 0.3227221073279469
+        }
+      ],
+      "throughput_ratio": 0.9268618181418384,
+      "throughput_ratio_range": [
+        0.8703667298142203,
+        0.9782502556556222
+      ],
+      "tpot_reduction": 0.3227221073279469
+    },
+    {
+      "comparison": "budget/ar",
+      "rounds": 5,
+      "pairs": [
+        {
+          "round": 0,
+          "throughput_ratio": 0.9949251733806264,
+          "tpot_reduction": 0.4064894859167961
+        },
+        {
+          "round": 1,
+          "throughput_ratio": 0.9742445699400828,
+          "tpot_reduction": 0.40737790208372926
+        },
+        {
+          "round": 2,
+          "throughput_ratio": 1.0160534611666556,
+          "tpot_reduction": 0.4310765756446211
+        },
+        {
+          "round": 3,
+          "throughput_ratio": 0.9791736479312203,
+          "tpot_reduction": 0.3845763674131111
+        },
+        {
+          "round": 4,
+          "throughput_ratio": 1.0029133047712075,
+          "tpot_reduction": 0.39907835156927973
+        }
+      ],
+      "throughput_ratio": 0.9949251733806264,
+      "throughput_ratio_range": [
+        0.9742445699400828,
+        1.0160534611666556
+      ],
+      "tpot_reduction": 0.4064894859167961
+    },
+    {
+      "comparison": "graphs/native",
+      "rounds": 5,
+      "pairs": [
+        {
+          "round": 0,
+          "throughput_ratio": 1.029078466926695,
+          "tpot_reduction": 0.05704502013869128
+        },
+        {
+          "round": 1,
+          "throughput_ratio": 0.9485162300377131,
+          "tpot_reduction": -0.05044544492338443
+        },
+        {
+          "round": 2,
+          "throughput_ratio": 1.0092475223327122,
+          "tpot_reduction": 0.04421456276812452
+        },
+        {
+          "round": 3,
+          "throughput_ratio": 1.1791715005794114,
+          "tpot_reduction": 0.13532642803867645
+        },
+        {
+          "round": 4,
+          "throughput_ratio": 0.9960706786703636,
+          "tpot_reduction": 0.024665540833193944
+        }
+      ],
+      "throughput_ratio": 1.0092475223327122,
+      "throughput_ratio_range": [
+        0.9485162300377131,
+        1.1791715005794114
+      ],
+      "tpot_reduction": 0.04421456276812452
+    },
+    {
+      "comparison": "budget/graphs",
+      "rounds": 5,
+      "pairs": [
+        {
+          "round": 0,
+          "throughput_ratio": 1.0170456563937504,
+          "tpot_reduction": 0.05535961739239892
+        },
+        {
+          "round": 1,
+          "throughput_ratio": 1.119349507015319,
+          "tpot_reduction": 0.19663909577525296
+        },
+        {
+          "round": 2,
+          "throughput_ratio": 1.071632415385683,
+          "tpot_reduction": 0.1407909976095747
+        },
+        {
+          "round": 3,
+          "throughput_ratio": 1.0837825663185543,
+          "tpot_reduction": 0.12360386059768891
+        },
+        {
+          "round": 4,
+          "throughput_ratio": 1.0820526697084536,
+          "tpot_reduction": 0.11273990346870155
+        }
+      ],
+      "throughput_ratio": 1.0820526697084536,
+      "throughput_ratio_range": [
+        1.0170456563937504,
+        1.119349507015319
+      ],
+      "tpot_reduction": 0.12360386059768891
+    },
+    {
+      "comparison": "budget/native",
+      "rounds": 5,
+      "pairs": [
+        {
+          "round": 0,
+          "throughput_ratio": 1.046619784876135,
+          "tpot_reduction": 0.10924664704207054
+        },
+        {
+          "round": 1,
+          "throughput_ratio": 1.0617211744887431,
+          "tpot_reduction": 0.15611319752758313
+        },
+        {
+          "round": 2,
+          "throughput_ratio": 1.0815423600794203,
+          "tpot_reduction": 0.17878054797670384
+        },
+        {
+          "round": 3,
+          "throughput_ratio": 1.2779655150276552,
+          "tpot_reduction": 0.24220341968988957
+        },
+        {
+          "round": 4,
+          "throughput_ratio": 1.0778009370735782,
+          "tpot_reduction": 0.13462465360935794
+        }
+      ],
+      "throughput_ratio": 1.0778009370735782,
+      "throughput_ratio_range": [
+        1.046619784876135,
+        1.2779655150276552
+      ],
+      "tpot_reduction": 0.15611319752758313
+    }
+  ],
+  "decision_coverage": [
+    {
+      "mode": "native",
+      "requests": 18,
+      "checked_tokens": 2304,
+      "non_argmax_tokens": 0,
+      "non_maximum_tokens": 0,
+      "top_logit_ties": 46
+    },
+    {
+      "mode": "budget",
+      "requests": 18,
+      "checked_tokens": 2304,
+      "non_argmax_tokens": 0,
+      "non_maximum_tokens": 0,
+      "top_logit_ties": 34
+    },
+    {
+      "mode": "ar",
+      "requests": 18,
+      "checked_tokens": 2304,
+      "non_argmax_tokens": 0,
+      "non_maximum_tokens": 0,
+      "top_logit_ties": 37
+    }
+  ],
+  "diagnostic_comparisons": [
+    {
+      "comparison": "ar/native, c=1",
+      "requests": 1,
+      "identical_sequences": 0,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 7,
+          "left": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 57358,
+            "argmax": 57358,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              30335,
+              10312,
+              24658,
+              89624
+            ],
+            "top_logits": [
+              20.875,
+              20.75,
+              20.25,
+              19.75,
+              18.125,
+              18.125,
+              18.0,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 1,
+            "num_tokens": 1,
+            "captured_tokens": 1,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 29854,
+            "argmax": 29854,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              10312,
+              30335,
+              24658,
+              89624
+            ],
+            "top_logits": [
+              20.875,
+              20.875,
+              20.375,
+              19.75,
+              18.25,
+              18.125,
+              18.0,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 1,
+            "num_tokens": 8,
+            "captured_tokens": 8,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 7,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        }
+      ]
+    },
+    {
+      "comparison": "ar/budget, c=1",
+      "requests": 1,
+      "identical_sequences": 0,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 7,
+          "left": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 57358,
+            "argmax": 57358,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              30335,
+              10312,
+              24658,
+              89624
+            ],
+            "top_logits": [
+              20.875,
+              20.75,
+              20.25,
+              19.75,
+              18.125,
+              18.125,
+              18.0,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 1,
+            "num_tokens": 1,
+            "captured_tokens": 1,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 29854,
+            "argmax": 29854,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              10312,
+              30335,
+              24658,
+              89624
+            ],
+            "top_logits": [
+              20.875,
+              20.875,
+              20.375,
+              19.75,
+              18.25,
+              18.125,
+              18.0,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 1,
+            "num_tokens": 8,
+            "captured_tokens": 8,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 7,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        }
+      ]
+    },
+    {
+      "comparison": "native/budget, c=1",
+      "requests": 1,
+      "identical_sequences": 1,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        }
+      ]
+    },
+    {
+      "comparison": "ar/native, c=16",
+      "requests": 16,
+      "identical_sequences": 4,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 46,
+          "left": {
+            "output_index": 46,
+            "absolute_position": 1847,
+            "token": 5323,
+            "argmax": 5323,
+            "top_tokens": [
+              10222,
+              5323,
+              2972,
+              348,
+              5615,
+              11407,
+              10728,
+              328
+            ],
+            "top_logits": [
+              25.125,
+              25.125,
+              22.625,
+              19.875,
+              18.125,
+              17.5,
+              16.625,
+              16.125
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 46,
+            "absolute_position": 1847,
+            "token": 10222,
+            "argmax": 10222,
+            "top_tokens": [
+              10222,
+              5323,
+              2972,
+              348,
+              5615,
+              11407,
+              10728,
+              328
+            ],
+            "top_logits": [
+              25.125,
+              25.0,
+              22.75,
+              19.875,
+              18.25,
+              17.375,
+              16.625,
+              16.125
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 46,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 1,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 93,
+          "left": {
+            "output_index": 93,
+            "absolute_position": 2057,
+            "token": 14195,
+            "argmax": 14195,
+            "top_tokens": [
+              14195,
+              725,
+              19013,
+              8341,
+              29784,
+              5467,
+              14217,
+              33129
+            ],
+            "top_logits": [
+              20.75,
+              20.625,
+              19.875,
+              19.75,
+              18.25,
+              16.75,
+              16.375,
+              16.125
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 93,
+            "absolute_position": 2057,
+            "token": 725,
+            "argmax": 725,
+            "top_tokens": [
+              725,
+              14195,
+              19013,
+              8341,
+              29784,
+              5467,
+              14217,
+              33129
+            ],
+            "top_logits": [
+              20.625,
+              20.625,
+              20.0,
+              19.75,
+              18.25,
+              16.75,
+              16.5,
+              16.0
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 93,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 2,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 24,
+          "left": {
+            "output_index": 24,
+            "absolute_position": 2138,
+            "token": 1149,
+            "argmax": 1149,
+            "top_tokens": [
+              1149,
+              763,
+              1288,
+              1,
+              539,
+              513,
+              321,
+              264
+            ],
+            "top_logits": [
+              16.75,
+              16.625,
+              14.75,
+              12.5625,
+              12.1875,
+              12.1875,
+              12.125,
+              11.9375
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 24,
+            "absolute_position": 2138,
+            "token": 763,
+            "argmax": 763,
+            "top_tokens": [
+              763,
+              1149,
+              1288,
+              1,
+              513,
+              321,
+              539,
+              264
+            ],
+            "top_logits": [
+              16.625,
+              16.625,
+              14.6875,
+              12.4375,
+              12.1875,
+              12.125,
+              12.125,
+              11.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 1982,
+            "captured_tokens": 1982,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 24,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 3,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 40,
+          "left": {
+            "output_index": 40,
+            "absolute_position": 2040,
+            "token": 18021,
+            "argmax": 18021,
+            "top_tokens": [
+              18021,
+              13900,
+              6278,
+              303,
+              11792,
+              5269,
+              533,
+              328
+            ],
+            "top_logits": [
+              18.0,
+              17.875,
+              17.5,
+              16.75,
+              16.5,
+              16.5,
+              16.375,
+              16.25
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 40,
+            "absolute_position": 2040,
+            "token": 13900,
+            "argmax": 13900,
+            "top_tokens": [
+              18021,
+              13900,
+              6278,
+              303,
+              11792,
+              5269,
+              533,
+              328
+            ],
+            "top_logits": [
+              18.0,
+              18.0,
+              17.625,
+              16.75,
+              16.5,
+              16.5,
+              16.5,
+              16.25
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 40,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 4,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 5,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 37,
+          "left": {
+            "output_index": 37,
+            "absolute_position": 1893,
+            "token": 11,
+            "argmax": 11,
+            "top_tokens": [
+              13,
+              11,
+              310,
+              318,
+              1040,
+              1083,
+              440,
+              948
+            ],
+            "top_logits": [
+              22.5,
+              22.5,
+              18.375,
+              16.75,
+              16.625,
+              16.0,
+              16.0,
+              14.75
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 37,
+            "absolute_position": 1893,
+            "token": 13,
+            "argmax": 13,
+            "top_tokens": [
+              13,
+              11,
+              310,
+              318,
+              1040,
+              1083,
+              440,
+              948
+            ],
+            "top_logits": [
+              22.5,
+              22.375,
+              18.375,
+              16.75,
+              16.5,
+              16.125,
+              16.0,
+              14.75
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 37,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 6,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 7,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 8,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 42,
+          "left": {
+            "output_index": 42,
+            "absolute_position": 1992,
+            "token": 13,
+            "argmax": 13,
+            "top_tokens": [
+              13,
+              25,
+              466,
+              318,
+              11,
+              321,
+              430,
+              5346
+            ],
+            "top_logits": [
+              22.75,
+              22.75,
+              20.0,
+              19.375,
+              17.75,
+              17.0,
+              15.5,
+              14.9375
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 42,
+            "absolute_position": 1992,
+            "token": 25,
+            "argmax": 25,
+            "top_tokens": [
+              25,
+              13,
+              466,
+              318,
+              11,
+              321,
+              430,
+              5346
+            ],
+            "top_logits": [
+              22.875,
+              22.75,
+              20.125,
+              19.375,
+              17.875,
+              17.125,
+              15.4375,
+              14.9375
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 42,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 9,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 13,
+          "left": {
+            "output_index": 13,
+            "absolute_position": 1942,
+            "token": 248045,
+            "argmax": 248045,
+            "top_tokens": [
+              248068,
+              248045,
+              74455,
+              248046,
+              846,
+              248044,
+              248059,
+              5619
+            ],
+            "top_logits": [
+              28.125,
+              28.125,
+              26.875,
+              22.75,
+              18.125,
+              17.75,
+              16.375,
+              16.375
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 13,
+            "absolute_position": 1942,
+            "token": 248068,
+            "argmax": 248068,
+            "top_tokens": [
+              248068,
+              248045,
+              74455,
+              248046,
+              846,
+              248044,
+              248059,
+              5619
+            ],
+            "top_logits": [
+              28.375,
+              28.25,
+              27.125,
+              22.75,
+              18.25,
+              17.75,
+              16.5,
+              16.375
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 13,
+          "maximum_shared_topk_logit_change": 0.25,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 10,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 11,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 24,
+          "left": {
+            "output_index": 24,
+            "absolute_position": 1959,
+            "token": 449,
+            "argmax": 449,
+            "top_tokens": [
+              449,
+              1439,
+              411,
+              310,
+              3520,
+              264,
+              353,
+              279
+            ],
+            "top_logits": [
+              22.125,
+              22.125,
+              21.0,
+              20.0,
+              19.25,
+              19.0,
+              18.375,
+              17.75
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 24,
+            "absolute_position": 1959,
+            "token": 1439,
+            "argmax": 1439,
+            "top_tokens": [
+              1439,
+              449,
+              411,
+              310,
+              3520,
+              264,
+              353,
+              279
+            ],
+            "top_logits": [
+              22.125,
+              22.0,
+              21.0,
+              20.0,
+              19.25,
+              19.0,
+              18.375,
+              17.75
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 10,
+            "num_tokens": 193,
+            "captured_tokens": 193,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 24,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 12,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 71,
+          "left": {
+            "output_index": 71,
+            "absolute_position": 1874,
+            "token": 9,
+            "argmax": 9,
+            "top_tokens": [
+              12,
+              9,
+              16,
+              169286,
+              332,
+              13962,
+              2592,
+              29
+            ],
+            "top_logits": [
+              24.375,
+              24.375,
+              23.375,
+              15.5625,
+              15.5625,
+              14.875,
+              14.875,
+              14.8125
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 71,
+            "absolute_position": 1874,
+            "token": 12,
+            "argmax": 12,
+            "top_tokens": [
+              12,
+              9,
+              16,
+              332,
+              169286,
+              2592,
+              13962,
+              29
+            ],
+            "top_logits": [
+              24.375,
+              24.25,
+              23.375,
+              15.5,
+              15.4375,
+              14.875,
+              14.8125,
+              14.8125
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 5,
+            "num_tokens": 40,
+            "captured_tokens": 64,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 71,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 13,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 54,
+          "left": {
+            "output_index": 54,
+            "absolute_position": 1854,
+            "token": 1928,
+            "argmax": 1928,
+            "top_tokens": [
+              1928,
+              7831,
+              8751,
+              59682,
+              5269,
+              71677,
+              33513,
+              7143
+            ],
+            "top_logits": [
+              21.0,
+              20.875,
+              20.375,
+              18.625,
+              18.375,
+              18.0,
+              17.75,
+              16.75
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 54,
+            "absolute_position": 1854,
+            "token": 7831,
+            "argmax": 7831,
+            "top_tokens": [
+              7831,
+              1928,
+              8751,
+              59682,
+              5269,
+              71677,
+              33513,
+              7143
+            ],
+            "top_logits": [
+              21.0,
+              20.875,
+              20.5,
+              18.625,
+              18.5,
+              18.125,
+              17.625,
+              16.75
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 7,
+            "num_tokens": 56,
+            "captured_tokens": 64,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 54,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 14,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 72,
+          "left": {
+            "output_index": 72,
+            "absolute_position": 2025,
+            "token": 18894,
+            "argmax": 18894,
+            "top_tokens": [
+              18894,
+              8,
+              43449,
+              11965,
+              681,
+              21568,
+              466,
+              4924
+            ],
+            "top_logits": [
+              18.75,
+              18.625,
+              18.375,
+              18.0,
+              17.875,
+              16.125,
+              15.9375,
+              15.375
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 72,
+            "absolute_position": 2025,
+            "token": 8,
+            "argmax": 8,
+            "top_tokens": [
+              18894,
+              8,
+              43449,
+              11965,
+              681,
+              21568,
+              466,
+              4924
+            ],
+            "top_logits": [
+              18.75,
+              18.75,
+              18.375,
+              18.0,
+              17.875,
+              16.125,
+              16.0,
+              15.375
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 5,
+            "num_tokens": 40,
+            "captured_tokens": 64,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 72,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 15,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 35,
+          "left": {
+            "output_index": 35,
+            "absolute_position": 2015,
+            "token": 1061,
+            "argmax": 1061,
+            "top_tokens": [
+              1061,
+              1049,
+              561,
+              5788,
+              11746,
+              83772,
+              5514,
+              271
+            ],
+            "top_logits": [
+              22.625,
+              22.5,
+              21.125,
+              20.625,
+              20.0,
+              18.625,
+              18.25,
+              18.0
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 35,
+            "absolute_position": 2015,
+            "token": 1049,
+            "argmax": 1049,
+            "top_tokens": [
+              1049,
+              1061,
+              561,
+              5788,
+              11746,
+              83772,
+              5514,
+              271
+            ],
+            "top_logits": [
+              22.625,
+              22.5,
+              21.125,
+              20.625,
+              19.875,
+              18.625,
+              18.125,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 5,
+            "num_tokens": 40,
+            "captured_tokens": 64,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 35,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        }
+      ]
+    },
+    {
+      "comparison": "ar/budget, c=16",
+      "requests": 16,
+      "identical_sequences": 6,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 7,
+          "left": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 57358,
+            "argmax": 57358,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              10312,
+              30335,
+              24658,
+              89624
+            ],
+            "top_logits": [
+              20.875,
+              20.75,
+              20.25,
+              19.75,
+              18.25,
+              18.125,
+              18.0,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 8,
+            "num_tokens": 2048,
+            "captured_tokens": 2048,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 29854,
+            "argmax": 29854,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              10312,
+              30335,
+              89624,
+              24658
+            ],
+            "top_logits": [
+              20.875,
+              20.875,
+              20.25,
+              19.75,
+              18.25,
+              18.125,
+              17.875,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 3,
+            "num_tokens": 2030,
+            "captured_tokens": 2030,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 7,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 1,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 59,
+          "left": {
+            "output_index": 59,
+            "absolute_position": 2023,
+            "token": 551,
+            "argmax": 551,
+            "top_tokens": [
+              781,
+              551,
+              780,
+              279,
+              264,
+              1381,
+              1472,
+              836
+            ],
+            "top_logits": [
+              21.375,
+              21.375,
+              20.0,
+              19.75,
+              17.5,
+              16.625,
+              16.5,
+              16.25
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 59,
+            "absolute_position": 2023,
+            "token": 781,
+            "argmax": 781,
+            "top_tokens": [
+              781,
+              551,
+              780,
+              279,
+              264,
+              1381,
+              1472,
+              836
+            ],
+            "top_logits": [
+              21.375,
+              21.25,
+              20.0,
+              19.75,
+              17.5,
+              16.75,
+              16.5,
+              16.25
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 55,
+            "captured_tokens": 60,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 59,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 2,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 3,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 4,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 5,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 37,
+          "left": {
+            "output_index": 37,
+            "absolute_position": 1893,
+            "token": 11,
+            "argmax": 11,
+            "top_tokens": [
+              13,
+              11,
+              310,
+              318,
+              1040,
+              1083,
+              440,
+              948
+            ],
+            "top_logits": [
+              22.5,
+              22.5,
+              18.375,
+              16.75,
+              16.625,
+              16.0,
+              16.0,
+              14.75
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 37,
+            "absolute_position": 1893,
+            "token": 13,
+            "argmax": 13,
+            "top_tokens": [
+              13,
+              11,
+              310,
+              318,
+              1040,
+              1083,
+              440,
+              948
+            ],
+            "top_logits": [
+              22.625,
+              22.5,
+              18.375,
+              16.75,
+              16.625,
+              16.125,
+              16.0,
+              14.75
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 55,
+            "captured_tokens": 60,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 37,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 6,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 3,
+          "left": {
+            "output_index": 3,
+            "absolute_position": 2017,
+            "token": 1245,
+            "argmax": 1245,
+            "top_tokens": [
+              1245,
+              4252,
+              220,
+              97901,
+              38643,
+              19321,
+              7458,
+              11
+            ],
+            "top_logits": [
+              24.0,
+              24.0,
+              13.5,
+              13.1875,
+              13.0,
+              12.9375,
+              12.3125,
+              12.25
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 11,
+            "num_tokens": 2048,
+            "captured_tokens": 2048,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 3,
+            "absolute_position": 2017,
+            "token": 4252,
+            "argmax": 4252,
+            "top_tokens": [
+              4252,
+              1245,
+              220,
+              97901,
+              19321,
+              38643,
+              7458,
+              11
+            ],
+            "top_logits": [
+              24.125,
+              24.0,
+              13.5625,
+              13.25,
+              13.0625,
+              13.0625,
+              12.3125,
+              12.25
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 9,
+            "num_tokens": 1994,
+            "captured_tokens": 1994,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 3,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 7,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 33,
+          "left": {
+            "output_index": 33,
+            "absolute_position": 2102,
+            "token": 5068,
+            "argmax": 5068,
+            "top_tokens": [
+              5068,
+              24867,
+              2972,
+              22641,
+              1510,
+              13140,
+              348,
+              8432
+            ],
+            "top_logits": [
+              21.375,
+              21.125,
+              21.125,
+              18.0,
+              17.125,
+              13.9375,
+              13.4375,
+              13.1875
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 33,
+            "absolute_position": 2102,
+            "token": 2972,
+            "argmax": 2972,
+            "top_tokens": [
+              2972,
+              24867,
+              5068,
+              22641,
+              1510,
+              13140,
+              348,
+              8432
+            ],
+            "top_logits": [
+              21.125,
+              21.125,
+              21.125,
+              18.125,
+              17.125,
+              13.9375,
+              13.25,
+              13.0625
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 55,
+            "captured_tokens": 60,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 33,
+          "maximum_shared_topk_logit_change": 0.25,
+          "left_margin": 0.25,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 8,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 106,
+          "left": {
+            "output_index": 106,
+            "absolute_position": 2056,
+            "token": 28081,
+            "argmax": 28081,
+            "top_tokens": [
+              28081,
+              33,
+              48554,
+              26677,
+              608,
+              54,
+              47,
+              50
+            ],
+            "top_logits": [
+              20.375,
+              20.25,
+              20.125,
+              19.5,
+              19.375,
+              19.125,
+              18.5,
+              18.25
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 106,
+            "absolute_position": 2056,
+            "token": 33,
+            "argmax": 33,
+            "top_tokens": [
+              33,
+              48554,
+              28081,
+              26677,
+              608,
+              54,
+              47,
+              50
+            ],
+            "top_logits": [
+              20.25,
+              20.25,
+              20.25,
+              19.625,
+              19.375,
+              19.0,
+              18.5,
+              18.375
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 1716,
+            "captured_tokens": 1716,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 106,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 9,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 10,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 11,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 24,
+          "left": {
+            "output_index": 24,
+            "absolute_position": 1959,
+            "token": 449,
+            "argmax": 449,
+            "top_tokens": [
+              449,
+              1439,
+              411,
+              310,
+              3520,
+              264,
+              353,
+              279
+            ],
+            "top_logits": [
+              22.125,
+              22.125,
+              21.0,
+              20.0,
+              19.25,
+              19.0,
+              18.375,
+              17.75
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 24,
+            "absolute_position": 1959,
+            "token": 1439,
+            "argmax": 1439,
+            "top_tokens": [
+              1439,
+              449,
+              411,
+              310,
+              3520,
+              264,
+              353,
+              279
+            ],
+            "top_logits": [
+              22.125,
+              22.0,
+              20.875,
+              20.0,
+              19.25,
+              19.0,
+              18.375,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 8,
+            "num_tokens": 40,
+            "captured_tokens": 40,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 24,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 12,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 51,
+          "left": {
+            "output_index": 51,
+            "absolute_position": 1854,
+            "token": 4777,
+            "argmax": 4777,
+            "top_tokens": [
+              4777,
+              1521,
+              8106,
+              4016,
+              6807,
+              424,
+              488,
+              539
+            ],
+            "top_logits": [
+              24.125,
+              24.0,
+              21.25,
+              20.75,
+              19.0,
+              18.625,
+              18.375,
+              18.125
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 51,
+            "absolute_position": 1854,
+            "token": 1521,
+            "argmax": 1521,
+            "top_tokens": [
+              4777,
+              1521,
+              8106,
+              4016,
+              6807,
+              424,
+              488,
+              539
+            ],
+            "top_logits": [
+              24.125,
+              24.125,
+              21.25,
+              20.875,
+              19.0,
+              18.5,
+              18.375,
+              18.125
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 5,
+            "num_tokens": 25,
+            "captured_tokens": 30,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 51,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 13,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 14,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 82,
+          "left": {
+            "output_index": 82,
+            "absolute_position": 2035,
+            "token": 4906,
+            "argmax": 4906,
+            "top_tokens": [
+              75336,
+              4906,
+              14835,
+              4779,
+              1528,
+              4368,
+              32907,
+              29174
+            ],
+            "top_logits": [
+              21.25,
+              21.25,
+              21.0,
+              20.75,
+              20.75,
+              20.375,
+              20.125,
+              19.75
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 82,
+            "absolute_position": 2035,
+            "token": 75336,
+            "argmax": 75336,
+            "top_tokens": [
+              75336,
+              4906,
+              14835,
+              4779,
+              1528,
+              4368,
+              32907,
+              29174
+            ],
+            "top_logits": [
+              21.25,
+              21.125,
+              21.0,
+              20.75,
+              20.75,
+              20.375,
+              20.0,
+              19.75
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 5,
+            "num_tokens": 25,
+            "captured_tokens": 30,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 82,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 15,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 35,
+          "left": {
+            "output_index": 35,
+            "absolute_position": 2015,
+            "token": 1061,
+            "argmax": 1061,
+            "top_tokens": [
+              1061,
+              1049,
+              561,
+              5788,
+              11746,
+              83772,
+              5514,
+              271
+            ],
+            "top_logits": [
+              22.625,
+              22.5,
+              21.125,
+              20.625,
+              20.0,
+              18.625,
+              18.25,
+              18.0
+            ],
+            "rank": 0,
+            "sampler": "ar",
+            "num_logits": 1,
+            "num_reqs": 16,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 35,
+            "absolute_position": 2015,
+            "token": 1049,
+            "argmax": 1049,
+            "top_tokens": [
+              1049,
+              1061,
+              561,
+              5788,
+              11746,
+              83772,
+              5514,
+              271
+            ],
+            "top_logits": [
+              22.5,
+              22.5,
+              21.125,
+              20.625,
+              19.875,
+              18.625,
+              18.125,
+              18.0
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 5,
+            "num_tokens": 25,
+            "captured_tokens": 30,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 35,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        }
+      ]
+    },
+    {
+      "comparison": "native/budget, c=16",
+      "requests": 16,
+      "identical_sequences": 3,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 7,
+          "left": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 57358,
+            "argmax": 57358,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              10312,
+              30335,
+              24658,
+              89624
+            ],
+            "top_logits": [
+              20.875,
+              20.75,
+              20.25,
+              19.75,
+              18.25,
+              18.125,
+              18.0,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 3,
+            "num_tokens": 2030,
+            "captured_tokens": 2030,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 29854,
+            "argmax": 29854,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              10312,
+              30335,
+              89624,
+              24658
+            ],
+            "top_logits": [
+              20.875,
+              20.875,
+              20.25,
+              19.75,
+              18.25,
+              18.125,
+              17.875,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 3,
+            "num_tokens": 2030,
+            "captured_tokens": 2030,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 7,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 1,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 59,
+          "left": {
+            "output_index": 59,
+            "absolute_position": 2023,
+            "token": 551,
+            "argmax": 551,
+            "top_tokens": [
+              781,
+              551,
+              780,
+              279,
+              264,
+              1381,
+              1472,
+              836
+            ],
+            "top_logits": [
+              21.375,
+              21.375,
+              20.0,
+              19.75,
+              17.375,
+              16.625,
+              16.5,
+              16.25
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 59,
+            "absolute_position": 2023,
+            "token": 781,
+            "argmax": 781,
+            "top_tokens": [
+              781,
+              551,
+              780,
+              279,
+              264,
+              1381,
+              1472,
+              836
+            ],
+            "top_logits": [
+              21.375,
+              21.25,
+              20.0,
+              19.75,
+              17.5,
+              16.75,
+              16.5,
+              16.25
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 55,
+            "captured_tokens": 60,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 59,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 2,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 24,
+          "left": {
+            "output_index": 24,
+            "absolute_position": 2138,
+            "token": 763,
+            "argmax": 763,
+            "top_tokens": [
+              763,
+              1149,
+              1288,
+              1,
+              513,
+              321,
+              539,
+              264
+            ],
+            "top_logits": [
+              16.625,
+              16.625,
+              14.6875,
+              12.4375,
+              12.1875,
+              12.125,
+              12.125,
+              11.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 1982,
+            "captured_tokens": 1982,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 24,
+            "absolute_position": 2138,
+            "token": 1149,
+            "argmax": 1149,
+            "top_tokens": [
+              1149,
+              763,
+              1288,
+              1,
+              513,
+              321,
+              539,
+              264
+            ],
+            "top_logits": [
+              16.875,
+              16.625,
+              14.75,
+              12.5625,
+              12.1875,
+              12.125,
+              12.125,
+              11.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 165,
+            "captured_tokens": 165,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 24,
+          "maximum_shared_topk_logit_change": 0.25,
+          "left_margin": 0.0,
+          "right_margin": 0.25,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 3,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 40,
+          "left": {
+            "output_index": 40,
+            "absolute_position": 2040,
+            "token": 13900,
+            "argmax": 13900,
+            "top_tokens": [
+              18021,
+              13900,
+              6278,
+              303,
+              11792,
+              5269,
+              533,
+              328
+            ],
+            "top_logits": [
+              18.0,
+              18.0,
+              17.625,
+              16.75,
+              16.5,
+              16.5,
+              16.5,
+              16.25
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 40,
+            "absolute_position": 2040,
+            "token": 18021,
+            "argmax": 18021,
+            "top_tokens": [
+              18021,
+              13900,
+              6278,
+              303,
+              11792,
+              5269,
+              533,
+              328
+            ],
+            "top_logits": [
+              18.0,
+              17.875,
+              17.625,
+              16.75,
+              16.5,
+              16.5,
+              16.5,
+              16.25
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 55,
+            "captured_tokens": 60,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 40,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 4,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 5,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 111,
+          "left": {
+            "output_index": 111,
+            "absolute_position": 1967,
+            "token": 8698,
+            "argmax": 8698,
+            "top_tokens": [
+              8698,
+              62131,
+              65,
+              88744,
+              57424,
+              1908,
+              3562,
+              41866
+            ],
+            "top_logits": [
+              24.375,
+              24.25,
+              24.25,
+              23.375,
+              22.625,
+              22.125,
+              21.625,
+              20.5
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 111,
+            "absolute_position": 1967,
+            "token": 65,
+            "argmax": 65,
+            "top_tokens": [
+              65,
+              8698,
+              62131,
+              88744,
+              57424,
+              1908,
+              3562,
+              41866
+            ],
+            "top_logits": [
+              24.375,
+              24.375,
+              24.25,
+              23.375,
+              22.5,
+              22.125,
+              21.625,
+              20.375
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 55,
+            "captured_tokens": 60,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 111,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 6,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 3,
+          "left": {
+            "output_index": 3,
+            "absolute_position": 2017,
+            "token": 1245,
+            "argmax": 1245,
+            "top_tokens": [
+              1245,
+              4252,
+              220,
+              97901,
+              38643,
+              19321,
+              7458,
+              11
+            ],
+            "top_logits": [
+              24.0,
+              24.0,
+              13.5,
+              13.1875,
+              13.0625,
+              13.0,
+              12.25,
+              12.25
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 8,
+            "num_tokens": 2000,
+            "captured_tokens": 2000,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 3,
+            "absolute_position": 2017,
+            "token": 4252,
+            "argmax": 4252,
+            "top_tokens": [
+              4252,
+              1245,
+              220,
+              97901,
+              19321,
+              38643,
+              7458,
+              11
+            ],
+            "top_logits": [
+              24.125,
+              24.0,
+              13.5625,
+              13.25,
+              13.0625,
+              13.0625,
+              12.3125,
+              12.25
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 9,
+            "num_tokens": 1994,
+            "captured_tokens": 1994,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 3,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 7,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 33,
+          "left": {
+            "output_index": 33,
+            "absolute_position": 2102,
+            "token": 5068,
+            "argmax": 5068,
+            "top_tokens": [
+              5068,
+              24867,
+              2972,
+              22641,
+              1510,
+              13140,
+              348,
+              8432
+            ],
+            "top_logits": [
+              21.25,
+              21.125,
+              21.125,
+              18.125,
+              17.25,
+              14.0,
+              13.3125,
+              13.0625
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 33,
+            "absolute_position": 2102,
+            "token": 2972,
+            "argmax": 2972,
+            "top_tokens": [
+              2972,
+              24867,
+              5068,
+              22641,
+              1510,
+              13140,
+              348,
+              8432
+            ],
+            "top_logits": [
+              21.125,
+              21.125,
+              21.125,
+              18.125,
+              17.125,
+              13.9375,
+              13.25,
+              13.0625
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 55,
+            "captured_tokens": 60,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 33,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 8,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 42,
+          "left": {
+            "output_index": 42,
+            "absolute_position": 1992,
+            "token": 25,
+            "argmax": 25,
+            "top_tokens": [
+              25,
+              13,
+              466,
+              318,
+              11,
+              321,
+              430,
+              5346
+            ],
+            "top_logits": [
+              22.875,
+              22.75,
+              20.125,
+              19.375,
+              17.875,
+              17.125,
+              15.4375,
+              14.9375
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 42,
+            "absolute_position": 1992,
+            "token": 13,
+            "argmax": 13,
+            "top_tokens": [
+              13,
+              25,
+              466,
+              318,
+              11,
+              321,
+              430,
+              5346
+            ],
+            "top_logits": [
+              22.75,
+              22.75,
+              20.0,
+              19.375,
+              17.75,
+              17.125,
+              15.5625,
+              15.0
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 55,
+            "captured_tokens": 60,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 42,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 9,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 13,
+          "left": {
+            "output_index": 13,
+            "absolute_position": 1942,
+            "token": 248068,
+            "argmax": 248068,
+            "top_tokens": [
+              248068,
+              248045,
+              74455,
+              248046,
+              846,
+              248044,
+              248059,
+              5619
+            ],
+            "top_logits": [
+              28.375,
+              28.25,
+              27.125,
+              22.75,
+              18.25,
+              17.75,
+              16.5,
+              16.375
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 11,
+            "num_tokens": 88,
+            "captured_tokens": 128,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 13,
+            "absolute_position": 1942,
+            "token": 248045,
+            "argmax": 248045,
+            "top_tokens": [
+              248068,
+              248045,
+              74455,
+              248046,
+              846,
+              248044,
+              248059,
+              5619
+            ],
+            "top_logits": [
+              28.25,
+              28.25,
+              27.125,
+              22.875,
+              18.375,
+              17.75,
+              16.625,
+              16.5
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 11,
+            "num_tokens": 55,
+            "captured_tokens": 60,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 13,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 10,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 11,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        },
+        {
+          "index": 12,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 51,
+          "left": {
+            "output_index": 51,
+            "absolute_position": 1854,
+            "token": 4777,
+            "argmax": 4777,
+            "top_tokens": [
+              4777,
+              1521,
+              8106,
+              4016,
+              6807,
+              424,
+              488,
+              539
+            ],
+            "top_logits": [
+              24.125,
+              24.0,
+              21.375,
+              20.875,
+              19.0,
+              18.625,
+              18.375,
+              18.125
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 8,
+            "num_tokens": 64,
+            "captured_tokens": 64,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 51,
+            "absolute_position": 1854,
+            "token": 1521,
+            "argmax": 1521,
+            "top_tokens": [
+              4777,
+              1521,
+              8106,
+              4016,
+              6807,
+              424,
+              488,
+              539
+            ],
+            "top_logits": [
+              24.125,
+              24.125,
+              21.25,
+              20.875,
+              19.0,
+              18.5,
+              18.375,
+              18.125
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 5,
+            "num_tokens": 25,
+            "captured_tokens": 30,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 51,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 13,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 54,
+          "left": {
+            "output_index": 54,
+            "absolute_position": 1854,
+            "token": 7831,
+            "argmax": 7831,
+            "top_tokens": [
+              7831,
+              1928,
+              8751,
+              59682,
+              5269,
+              71677,
+              33513,
+              7143
+            ],
+            "top_logits": [
+              21.0,
+              20.875,
+              20.5,
+              18.625,
+              18.5,
+              18.125,
+              17.625,
+              16.75
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 7,
+            "num_tokens": 56,
+            "captured_tokens": 64,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 54,
+            "absolute_position": 1854,
+            "token": 1928,
+            "argmax": 1928,
+            "top_tokens": [
+              1928,
+              7831,
+              8751,
+              59682,
+              5269,
+              71677,
+              33513,
+              7143
+            ],
+            "top_logits": [
+              21.0,
+              21.0,
+              20.5,
+              18.75,
+              18.5,
+              18.0,
+              17.75,
+              16.75
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 5,
+            "num_tokens": 25,
+            "captured_tokens": 30,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 54,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 14,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 72,
+          "left": {
+            "output_index": 72,
+            "absolute_position": 2025,
+            "token": 8,
+            "argmax": 8,
+            "top_tokens": [
+              18894,
+              8,
+              43449,
+              11965,
+              681,
+              21568,
+              466,
+              4924
+            ],
+            "top_logits": [
+              18.75,
+              18.75,
+              18.375,
+              18.0,
+              17.875,
+              16.125,
+              16.0,
+              15.375
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 5,
+            "num_tokens": 40,
+            "captured_tokens": 64,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 72,
+            "absolute_position": 2025,
+            "token": 18894,
+            "argmax": 18894,
+            "top_tokens": [
+              18894,
+              8,
+              43449,
+              11965,
+              681,
+              21568,
+              466,
+              4924
+            ],
+            "top_logits": [
+              18.75,
+              18.625,
+              18.375,
+              18.0,
+              17.875,
+              16.125,
+              15.9375,
+              15.4375
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 5,
+            "num_tokens": 25,
+            "captured_tokens": 30,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 72,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        },
+        {
+          "index": 15,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 110,
+          "left": {
+            "output_index": 110,
+            "absolute_position": 2090,
+            "token": 5568,
+            "argmax": 5568,
+            "top_tokens": [
+              5568,
+              318,
+              393,
+              709,
+              11,
+              3704,
+              466,
+              7566
+            ],
+            "top_logits": [
+              23.375,
+              23.25,
+              22.375,
+              19.25,
+              18.75,
+              18.375,
+              18.125,
+              18.0
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 2,
+            "num_tokens": 16,
+            "captured_tokens": 16,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 110,
+            "absolute_position": 2090,
+            "token": 318,
+            "argmax": 318,
+            "top_tokens": [
+              5568,
+              318,
+              393,
+              709,
+              11,
+              3704,
+              466,
+              7566
+            ],
+            "top_logits": [
+              23.25,
+              23.25,
+              22.25,
+              19.25,
+              18.75,
+              18.375,
+              18.0,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 5,
+            "num_reqs": 2,
+            "num_tokens": 10,
+            "captured_tokens": 10,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 110,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.125,
+          "right_margin": 0.0,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        }
+      ]
+    },
+    {
+      "comparison": "ar isolated repeat",
+      "requests": 1,
+      "identical_sequences": 1,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        }
+      ]
+    },
+    {
+      "comparison": "ar batch-size control",
+      "requests": 1,
+      "identical_sequences": 1,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        }
+      ]
+    },
+    {
+      "comparison": "native isolated repeat",
+      "requests": 1,
+      "identical_sequences": 1,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        }
+      ]
+    },
+    {
+      "comparison": "native batch-size control",
+      "requests": 1,
+      "identical_sequences": 0,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": false,
+          "tokens": 128,
+          "first_difference_index": 7,
+          "left": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 29854,
+            "argmax": 29854,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              10312,
+              30335,
+              24658,
+              89624
+            ],
+            "top_logits": [
+              20.875,
+              20.875,
+              20.375,
+              19.75,
+              18.25,
+              18.125,
+              18.0,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 1,
+            "num_tokens": 8,
+            "captured_tokens": 8,
+            "dtype": "torch.bfloat16"
+          },
+          "right": {
+            "output_index": 7,
+            "absolute_position": 1808,
+            "token": 57358,
+            "argmax": 57358,
+            "top_tokens": [
+              57358,
+              29854,
+              769,
+              31719,
+              10312,
+              30335,
+              24658,
+              89624
+            ],
+            "top_logits": [
+              20.875,
+              20.75,
+              20.25,
+              19.75,
+              18.25,
+              18.125,
+              18.0,
+              17.875
+            ],
+            "rank": 0,
+            "sampler": "verify",
+            "num_logits": 8,
+            "num_reqs": 3,
+            "num_tokens": 2030,
+            "captured_tokens": 2030,
+            "dtype": "torch.bfloat16"
+          },
+          "common_prefix_tokens": 7,
+          "maximum_shared_topk_logit_change": 0.125,
+          "left_margin": 0.0,
+          "right_margin": 0.125,
+          "changed_argmax": true,
+          "each_emitted_token_is_own_argmax": true
+        }
+      ]
+    },
+    {
+      "comparison": "budget isolated repeat",
+      "requests": 1,
+      "identical_sequences": 1,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        }
+      ]
+    },
+    {
+      "comparison": "budget batch-size control",
+      "requests": 1,
+      "identical_sequences": 1,
+      "pairs": [
+        {
+          "index": 0,
+          "identical": true,
+          "tokens": 128,
+          "first_difference_index": null
+        }
+      ]
+    }
+  ],
+  "scope": "Direct same-round c=16 comparisons; target logits captured in separate instrumented requests. No claim of universal losslessness or full kernel root-cause isolation."
+}

@@ -1,0 +1,539 @@
+{
+  "source": "/home/liuguangli/learn-ai-infra/serving-benchmark/dspark-multigpu-lab/runs/20261003/native-paired-resumed.json",
+  "complete": true,
+  "pairs": [
+    {
+      "round": 0,
+      "concurrency": 1,
+      "requests": 4,
+      "ar_tokens_s": 19.182802184660172,
+      "spec_tokens_s": 45.55614857955682,
+      "throughput_ratio": 2.374843265390419,
+      "tpot_reduction_fraction": 0.6463251602189064,
+      "ar_tpot_ms": 49.32493729809043,
+      "spec_tpot_ms": 17.44498929611462,
+      "ar_ttft_ms": 714.4317659549415,
+      "spec_ttft_ms": 848.7140920478851,
+      "identical_sequences": 2,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        3
+      ],
+      "acceptance": {
+        "rounds": 352.0,
+        "accepted": 678.0,
+        "proposed": 2464.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.9261363636363633,
+        "draft_acceptance_fraction": 0.27516233766233766
+      }
+    },
+    {
+      "round": 0,
+      "concurrency": 4,
+      "requests": 4,
+      "ar_tokens_s": 65.30689038048453,
+      "spec_tokens_s": 116.64410535214458,
+      "throughput_ratio": 1.7860918606377405,
+      "tpot_reduction_fraction": 0.6010622512556968,
+      "ar_tpot_ms": 53.48595086457756,
+      "spec_tpot_ms": 21.33756482736299,
+      "ar_ttft_ms": 1909.3426920007914,
+      "spec_ttft_ms": 1828.3871510066092,
+      "identical_sequences": 1,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        1,
+        3
+      ],
+      "acceptance": {
+        "rounds": 346.0,
+        "accepted": 681.0,
+        "proposed": 2422.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.968208092485549,
+        "draft_acceptance_fraction": 0.28117258464079276
+      }
+    },
+    {
+      "round": 0,
+      "concurrency": 16,
+      "requests": 16,
+      "ar_tokens_s": 167.3065190528359,
+      "spec_tokens_s": 169.26442829058453,
+      "throughput_ratio": 1.0117025280833816,
+      "tpot_reduction_fraction": 0.3707046965053966,
+      "ar_tpot_ms": 71.57310648392155,
+      "spec_tpot_ms": 45.04061976685097,
+      "ar_ttft_ms": 5878.3793525071815,
+      "spec_ttft_ms": 6752.575505524874,
+      "identical_sequences": 2,
+      "total_sequences": 16,
+      "divergent_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "acceptance": {
+        "rounds": 1239.0,
+        "accepted": 2876.0,
+        "proposed": 8673.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 3.321226795803067,
+        "draft_acceptance_fraction": 0.3316038279718667
+      }
+    },
+    {
+      "round": 1,
+      "concurrency": 1,
+      "requests": 4,
+      "ar_tokens_s": 19.14835047120325,
+      "spec_tokens_s": 47.019669008462586,
+      "throughput_ratio": 2.45554671036413,
+      "tpot_reduction_fraction": 0.638654069910096,
+      "ar_tpot_ms": 49.36325112996879,
+      "spec_tpot_ms": 17.837209891820073,
+      "ar_ttft_ms": 750.7428468670696,
+      "spec_ttft_ms": 801.3798000756651,
+      "identical_sequences": 2,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        3
+      ],
+      "acceptance": {
+        "rounds": 352.0,
+        "accepted": 678.0,
+        "proposed": 2464.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.9261363636363633,
+        "draft_acceptance_fraction": 0.27516233766233766
+      }
+    },
+    {
+      "round": 1,
+      "concurrency": 4,
+      "requests": 4,
+      "ar_tokens_s": 63.28720969651554,
+      "spec_tokens_s": 106.84437569579381,
+      "throughput_ratio": 1.6882459537740757,
+      "tpot_reduction_fraction": 0.558701718941387,
+      "ar_tpot_ms": 54.69857967257792,
+      "spec_tpot_ms": 24.138389185856227,
+      "ar_ttft_ms": 2132.3748060967773,
+      "spec_ttft_ms": 2150.0593485543504,
+      "identical_sequences": 0,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "acceptance": {
+        "rounds": 357.0,
+        "accepted": 678.0,
+        "proposed": 2499.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.899159663865546,
+        "draft_acceptance_fraction": 0.27130852340936373
+      }
+    },
+    {
+      "round": 1,
+      "concurrency": 16,
+      "requests": 16,
+      "ar_tokens_s": 157.05455493806426,
+      "spec_tokens_s": 160.75519560160797,
+      "throughput_ratio": 1.0235627719616478,
+      "tpot_reduction_fraction": 0.3337546024525543,
+      "ar_tpot_ms": 71.15355204133427,
+      "spec_tpot_ms": 47.40572656669161,
+      "ar_ttft_ms": 7547.265246510506,
+      "spec_ttft_ms": 7181.002503959462,
+      "identical_sequences": 1,
+      "total_sequences": 16,
+      "divergent_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "acceptance": {
+        "rounds": 1239.0,
+        "accepted": 2876.0,
+        "proposed": 8673.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 3.321226795803067,
+        "draft_acceptance_fraction": 0.3316038279718667
+      }
+    },
+    {
+      "round": 2,
+      "concurrency": 1,
+      "requests": 4,
+      "ar_tokens_s": 19.147855944642405,
+      "spec_tokens_s": 46.5930601489469,
+      "throughput_ratio": 2.4333304096108836,
+      "tpot_reduction_fraction": 0.6381329020514188,
+      "ar_tpot_ms": 49.18733813306864,
+      "spec_tpot_ms": 17.799279306029135,
+      "ar_ttft_ms": 753.3016960369423,
+      "spec_ttft_ms": 788.8215830316767,
+      "identical_sequences": 2,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        3
+      ],
+      "acceptance": {
+        "rounds": 352.0,
+        "accepted": 678.0,
+        "proposed": 2464.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.9261363636363633,
+        "draft_acceptance_fraction": 0.27516233766233766
+      }
+    },
+    {
+      "round": 2,
+      "concurrency": 4,
+      "requests": 4,
+      "ar_tokens_s": 63.697133815427314,
+      "spec_tokens_s": 99.61363063586943,
+      "throughput_ratio": 1.5638636257090615,
+      "tpot_reduction_fraction": 0.5497292386611563,
+      "ar_tpot_ms": 54.300985586665135,
+      "spec_tpot_ms": 24.45014612155729,
+      "ar_ttft_ms": 2080.2052593789995,
+      "spec_ttft_ms": 2483.939448487945,
+      "identical_sequences": 0,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "acceptance": {
+        "rounds": 352.0,
+        "accepted": 680.0,
+        "proposed": 2464.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.9318181818181817,
+        "draft_acceptance_fraction": 0.275974025974026
+      }
+    },
+    {
+      "round": 2,
+      "concurrency": 16,
+      "requests": 16,
+      "ar_tokens_s": 172.97622123621883,
+      "spec_tokens_s": 155.2686166894937,
+      "throughput_ratio": 0.8976298336258406,
+      "tpot_reduction_fraction": 0.27266079062181214,
+      "ar_tpot_ms": 68.19734859380725,
+      "spec_tpot_ms": 49.60260560790844,
+      "ar_ttft_ms": 5885.719880461693,
+      "spec_ttft_ms": 7180.017263628542,
+      "identical_sequences": 4,
+      "total_sequences": 16,
+      "divergent_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "acceptance": {
+        "rounds": 1244.0,
+        "accepted": 2866.0,
+        "proposed": 8708.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 3.3038585209003215,
+        "draft_acceptance_fraction": 0.32912264584290307
+      }
+    },
+    {
+      "round": 3,
+      "concurrency": 1,
+      "requests": 4,
+      "ar_tokens_s": 19.03069072357008,
+      "spec_tokens_s": 44.57439967304165,
+      "throughput_ratio": 2.342237616096347,
+      "tpot_reduction_fraction": 0.6237548006995852,
+      "ar_tpot_ms": 49.46864739416496,
+      "spec_tpot_ms": 18.61234109793954,
+      "ar_ttft_ms": 743.8691919669509,
+      "spec_ttft_ms": 938.753294525668,
+      "identical_sequences": 2,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        3
+      ],
+      "acceptance": {
+        "rounds": 352.0,
+        "accepted": 678.0,
+        "proposed": 2464.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.9261363636363633,
+        "draft_acceptance_fraction": 0.27516233766233766
+      }
+    },
+    {
+      "round": 3,
+      "concurrency": 4,
+      "requests": 4,
+      "ar_tokens_s": 59.94441258604193,
+      "spec_tokens_s": 104.52448867459755,
+      "throughput_ratio": 1.7436902651196569,
+      "tpot_reduction_fraction": 0.5632410742731069,
+      "ar_tpot_ms": 56.47323814302902,
+      "spec_tpot_ms": 24.66519082366836,
+      "ar_ttft_ms": 2630.361292976886,
+      "spec_ttft_ms": 2210.2628875290975,
+      "identical_sequences": 0,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "acceptance": {
+        "rounds": 357.0,
+        "accepted": 678.0,
+        "proposed": 2499.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.899159663865546,
+        "draft_acceptance_fraction": 0.27130852340936373
+      }
+    },
+    {
+      "round": 3,
+      "concurrency": 16,
+      "requests": 16,
+      "ar_tokens_s": 172.98686644072978,
+      "spec_tokens_s": 141.34851332839673,
+      "throughput_ratio": 0.8171054614532066,
+      "tpot_reduction_fraction": 0.20470883295679565,
+      "ar_tpot_ms": 68.0364771568052,
+      "spec_tpot_ms": 54.10880931954392,
+      "ar_ttft_ms": 5924.108125967905,
+      "spec_ttft_ms": 8572.830169461668,
+      "identical_sequences": 1,
+      "total_sequences": 16,
+      "divergent_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "acceptance": {
+        "rounds": 1244.0,
+        "accepted": 2866.0,
+        "proposed": 8708.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 3.3038585209003215,
+        "draft_acceptance_fraction": 0.32912264584290307
+      }
+    },
+    {
+      "round": 4,
+      "concurrency": 1,
+      "requests": 4,
+      "ar_tokens_s": 19.293038065832754,
+      "spec_tokens_s": 47.230392041640734,
+      "throughput_ratio": 2.448053638855561,
+      "tpot_reduction_fraction": 0.6449942296098303,
+      "ar_tpot_ms": 48.615795662444015,
+      "spec_tpot_ms": 17.25888799227701,
+      "ar_ttft_ms": 742.6833936478943,
+      "spec_ttft_ms": 800.1271075336263,
+      "identical_sequences": 2,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        3
+      ],
+      "acceptance": {
+        "rounds": 352.0,
+        "accepted": 678.0,
+        "proposed": 2464.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.9261363636363633,
+        "draft_acceptance_fraction": 0.27516233766233766
+      }
+    },
+    {
+      "round": 4,
+      "concurrency": 4,
+      "requests": 4,
+      "ar_tokens_s": 66.13848335620224,
+      "spec_tokens_s": 91.52678269021371,
+      "throughput_ratio": 1.3838657623471289,
+      "tpot_reduction_fraction": 0.5061567589446312,
+      "ar_tpot_ms": 53.522435474373836,
+      "spec_tpot_ms": 26.431693003841623,
+      "ar_ttft_ms": 1734.1936200391501,
+      "spec_ttft_ms": 3015.146072488278,
+      "identical_sequences": 0,
+      "total_sequences": 4,
+      "divergent_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "acceptance": {
+        "rounds": 352.0,
+        "accepted": 680.0,
+        "proposed": 2464.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 2.9318181818181817,
+        "draft_acceptance_fraction": 0.275974025974026
+      }
+    },
+    {
+      "round": 4,
+      "concurrency": 16,
+      "requests": 16,
+      "ar_tokens_s": 175.19891474554433,
+      "spec_tokens_s": 148.51248598481527,
+      "throughput_ratio": 0.8476792576056311,
+      "tpot_reduction_fraction": 0.24251373899214235,
+      "ar_tpot_ms": 67.25624840222665,
+      "spec_tpot_ms": 50.945684131618364,
+      "ar_ttft_ms": 5826.709399931133,
+      "spec_ttft_ms": 8792.487343424,
+      "identical_sequences": 1,
+      "total_sequences": 16,
+      "divergent_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "acceptance": {
+        "rounds": 1239.0,
+        "accepted": 2876.0,
+        "proposed": 8673.0,
+        "preemptions": 0.0,
+        "accepted_length_including_bonus": 3.321226795803067,
+        "draft_acceptance_fraction": 0.3316038279718667
+      }
+    }
+  ],
+  "summary": [
+    {
+      "concurrency": 1,
+      "rounds": 5,
+      "throughput_ratio": 2.4333304096108836,
+      "throughput_ratio_range": [
+        2.342237616096347,
+        2.45554671036413
+      ],
+      "tpot_reduction_fraction": 0.638654069910096,
+      "identical_sequences": 10,
+      "total_sequences": 20,
+      "ar_tokens_s": 19.14835047120325,
+      "spec_tokens_s": 46.5930601489469,
+      "ar_tpot_ms": 49.32493729809043,
+      "spec_tpot_ms": 17.799279306029135,
+      "accepted_length": 2.9261363636363633,
+      "preemptions": 0.0
+    },
+    {
+      "concurrency": 4,
+      "rounds": 5,
+      "throughput_ratio": 1.6882459537740757,
+      "throughput_ratio_range": [
+        1.3838657623471289,
+        1.7860918606377405
+      ],
+      "tpot_reduction_fraction": 0.558701718941387,
+      "identical_sequences": 1,
+      "total_sequences": 20,
+      "ar_tokens_s": 63.697133815427314,
+      "spec_tokens_s": 104.52448867459755,
+      "ar_tpot_ms": 54.300985586665135,
+      "spec_tpot_ms": 24.45014612155729,
+      "accepted_length": 2.9318181818181817,
+      "preemptions": 0.0
+    },
+    {
+      "concurrency": 16,
+      "rounds": 5,
+      "throughput_ratio": 0.8976298336258406,
+      "throughput_ratio_range": [
+        0.8171054614532066,
+        1.0235627719616478
+      ],
+      "tpot_reduction_fraction": 0.27266079062181214,
+      "identical_sequences": 9,
+      "total_sequences": 80,
+      "ar_tokens_s": 172.97622123621883,
+      "spec_tokens_s": 155.2686166894937,
+      "ar_tpot_ms": 68.19734859380725,
+      "spec_tpot_ms": 49.60260560790844,
+      "accepted_length": 3.321226795803067,
+      "preemptions": 0.0
+    }
+  ],
+  "metric": "median of within-round ratios, not ratio of marginal medians",
+  "correctness_scope": "Observed greedy sequence equality; repeated requests/rounds are not independent tasks"
+}

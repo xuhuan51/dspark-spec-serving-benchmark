@@ -1,0 +1,45 @@
+{
+  "batch_to_prefix": {
+    "1": 7,
+    "3": 4,
+    "11": 4
+  },
+  "calibration": [
+    {
+      "concurrency": 1,
+      "active_bucket": 1,
+      "tokens_per_second": {
+        "1": 27.687601998821968,
+        "2": 34.31627094296647,
+        "4": 40.08627937793021,
+        "7": 44.06216790021708
+      },
+      "chosen": 7
+    },
+    {
+      "concurrency": 4,
+      "active_bucket": 3,
+      "tokens_per_second": {
+        "1": 63.092648618253534,
+        "2": 71.30511905168076,
+        "4": 78.67252560802063,
+        "7": 75.34661261075237
+      },
+      "chosen": 4
+    },
+    {
+      "concurrency": 16,
+      "active_bucket": 11,
+      "tokens_per_second": {
+        "1": 85.42442608753676,
+        "2": 75.56184259217898,
+        "4": 89.08266514749769,
+        "7": 80.95594795162279
+      },
+      "chosen": 4
+    }
+  ],
+  "calibration_offset": 0,
+  "validation_offset": 16,
+  "gain_gate": 1.03
+}

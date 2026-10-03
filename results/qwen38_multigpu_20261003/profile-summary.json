@@ -1,0 +1,322 @@
+{
+  "records": [
+    {
+      "mode": "ar",
+      "concurrency": 1,
+      "source": "/home/liuguangli/learn-ai-infra/serving-benchmark/dspark-multigpu-lab/runs/20261003/profiles.ar.1.phases-v3.json",
+      "cuda_to_physical": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "phases": {
+        "dspark_lab/target_eager": {
+          "mean_gpu_cumulative_ms": 718.749215,
+          "categories": {
+            "matrix_multiply": 0.2726234184478379,
+            "communication": 0.5343980403512509,
+            "gdn": 0.0052799497666233975,
+            "attention": 0.005366825339767501
+          }
+        },
+        "dspark_lab/target_logits": {
+          "mean_gpu_cumulative_ms": 108.2072225,
+          "categories": {
+            "matrix_multiply": 0.43318210575084304,
+            "communication": 0.566817894249157,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        },
+        "dspark_lab/target_sample": {
+          "mean_gpu_cumulative_ms": 2.31275275,
+          "categories": {
+            "matrix_multiply": 0.0,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        },
+        "target_graph": {
+          "mean_gpu_cumulative_ms": 1925.81874625,
+          "categories": {
+            "matrix_multiply": 0.544542974925359,
+            "communication": 0.27704531944603816,
+            "gdn": 0.012534318479869248,
+            "attention": 0.016454048342660847
+          }
+        },
+        "unscoped": {
+          "mean_gpu_cumulative_ms": 2.3191345,
+          "categories": {
+            "matrix_multiply": 0.0,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        }
+      }
+    },
+    {
+      "mode": "ar",
+      "concurrency": 16,
+      "source": "/home/liuguangli/learn-ai-infra/serving-benchmark/dspark-multigpu-lab/runs/20261003/profiles.ar.2.phases-v3.json",
+      "cuda_to_physical": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "phases": {
+        "dspark_lab/target_eager": {
+          "mean_gpu_cumulative_ms": 12462.644341250001,
+          "categories": {
+            "matrix_multiply": 0.22974855418708148,
+            "communication": 0.5804607480296933,
+            "gdn": 0.005724975658965469,
+            "attention": 0.006812825045401556
+          }
+        },
+        "dspark_lab/target_logits": {
+          "mean_gpu_cumulative_ms": 219.21586674999998,
+          "categories": {
+            "matrix_multiply": 0.28813931188673875,
+            "communication": 0.7033438912788004,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        },
+        "dspark_lab/target_sample": {
+          "mean_gpu_cumulative_ms": 3.688041,
+          "categories": {
+            "matrix_multiply": 0.0,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        },
+        "target_graph": {
+          "mean_gpu_cumulative_ms": 2671.64718925,
+          "categories": {
+            "matrix_multiply": 0.4196234352203959,
+            "communication": 0.3586815920552036,
+            "gdn": 0.0329976930916347,
+            "attention": 0.021964805639802167
+          }
+        },
+        "unscoped": {
+          "mean_gpu_cumulative_ms": 5.018082,
+          "categories": {
+            "matrix_multiply": 0.0,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        }
+      }
+    },
+    {
+      "mode": "fixed",
+      "concurrency": 1,
+      "source": "/home/liuguangli/learn-ai-infra/serving-benchmark/dspark-multigpu-lab/runs/20261003/profiles.fixed.1.phases-v3.json",
+      "cuda_to_physical": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "phases": {
+        "draft_graph": {
+          "mean_gpu_cumulative_ms": 221.12502425000002,
+          "categories": {
+            "matrix_multiply": 0.30066873695323054,
+            "communication": 0.6170966253721055,
+            "gdn": 0.0,
+            "attention": 0.04991297926335896
+          }
+        },
+        "draft_other": {
+          "mean_gpu_cumulative_ms": 18.88246075,
+          "categories": {
+            "matrix_multiply": 0.9147227805041246,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.028974057314007658
+          }
+        },
+        "dspark_lab/target_eager": {
+          "mean_gpu_cumulative_ms": 803.3935670000001,
+          "categories": {
+            "matrix_multiply": 0.24544472111761378,
+            "communication": 0.5800965804845684,
+            "gdn": 0.004777412849261712,
+            "attention": 0.004836414130759401
+          }
+        },
+        "dspark_lab/target_logits": {
+          "mean_gpu_cumulative_ms": 81.12017775,
+          "categories": {
+            "matrix_multiply": 0.213314347058368,
+            "communication": 0.7829243754338298,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        },
+        "dspark_lab/target_sample": {
+          "mean_gpu_cumulative_ms": 1.0197055000000002,
+          "categories": {
+            "matrix_multiply": 0.0,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        },
+        "target_graph": {
+          "mean_gpu_cumulative_ms": 1220.60327925,
+          "categories": {
+            "matrix_multiply": 0.30101316987757065,
+            "communication": 0.552928004924496,
+            "gdn": 0.023915135241924266,
+            "attention": 0.02593848799050734
+          }
+        },
+        "unscoped": {
+          "mean_gpu_cumulative_ms": 3.32068675,
+          "categories": {
+            "matrix_multiply": 0.0,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        }
+      }
+    },
+    {
+      "mode": "fixed",
+      "concurrency": 16,
+      "source": "/home/liuguangli/learn-ai-infra/serving-benchmark/dspark-multigpu-lab/runs/20261003/profiles.fixed.2.phases-v3.json",
+      "cuda_to_physical": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "phases": {
+        "draft_graph": {
+          "mean_gpu_cumulative_ms": 555.307421,
+          "categories": {
+            "matrix_multiply": 0.3658360334608242,
+            "communication": 0.5058808528870714,
+            "gdn": 0.0,
+            "attention": 0.054985611744597956
+          }
+        },
+        "draft_other": {
+          "mean_gpu_cumulative_ms": 135.15559725,
+          "categories": {
+            "matrix_multiply": 0.9095274169268636,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.016370280217899002
+          }
+        },
+        "dspark_lab/target_eager": {
+          "mean_gpu_cumulative_ms": 15525.573753,
+          "categories": {
+            "matrix_multiply": 0.19574826622190084,
+            "communication": 0.6369090306945514,
+            "gdn": 0.008583554970021598,
+            "attention": 0.005724590483029731
+          }
+        },
+        "dspark_lab/target_logits": {
+          "mean_gpu_cumulative_ms": 181.21647249999998,
+          "categories": {
+            "matrix_multiply": 0.2522088948067346,
+            "communication": 0.7145181379689423,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        },
+        "dspark_lab/target_sample": {
+          "mean_gpu_cumulative_ms": 4.68332325,
+          "categories": {
+            "matrix_multiply": 0.0,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        },
+        "target_graph": {
+          "mean_gpu_cumulative_ms": 2274.5323952500003,
+          "categories": {
+            "matrix_multiply": 0.3248842048999609,
+            "communication": 0.44884244664178075,
+            "gdn": 0.06250633637793204,
+            "attention": 0.03379432709357011
+          }
+        },
+        "unscoped": {
+          "mean_gpu_cumulative_ms": 21.54152775,
+          "categories": {
+            "matrix_multiply": 0.0,
+            "communication": 0.0,
+            "gdn": 0.0,
+            "attention": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "analysis_sha256": "7bec5154d9f6e2db376ffcd7bd14ebad0b9529df5f85ba898e7e9bbde6c96298",
+  "scope": "64-token captures, including prefill and decode; sums include overlap and NCCL device waiting, not endpoint latency shares or wire transfer time"
+}

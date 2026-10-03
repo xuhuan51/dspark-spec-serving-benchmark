@@ -1,0 +1,46 @@
+{
+  "runtime": "vLLM 0.29.0",
+  "coverage_checks": 224,
+  "ablation_examples": 2,
+  "target_plan": {
+    "role": "target",
+    "widths": [
+      2,
+      3,
+      5,
+      8
+    ],
+    "requests": [
+      1,
+      2,
+      4,
+      6,
+      8,
+      12,
+      16,
+      24,
+      32
+    ],
+    "descriptors": 36
+  },
+  "draft_plan": {
+    "role": "draft",
+    "widths": [
+      7
+    ],
+    "requests": [
+      1,
+      2,
+      4,
+      6,
+      8,
+      12,
+      16,
+      24,
+      32
+    ],
+    "descriptors": 9
+  },
+  "source_sha256": "91d18fd45b09987e9e293bc3bcfbc15fc03df7c3d18baf4189f55b23b7c758d1",
+  "scope": "CPU graph descriptor and dispatch checks; not GPU numerical correctness"
+}
