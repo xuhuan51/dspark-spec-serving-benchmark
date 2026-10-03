@@ -81,46 +81,46 @@ def draw_card(draw: ImageDraw.ImageDraw, x: int, y: int, w: int, h: int, title: 
 
 
 def overview() -> None:
-    img = Image.new("RGB", (1600, 620), COLORS["bg"])
+    """Draw the decode verification loop and mark the two local adapters."""
+    img = Image.new("RGB", (1600, 730), COLORS["bg"])
     draw = ImageDraw.Draw(img)
+    rounded(draw, (24, 24, 1576, 706), COLORS["bg"], COLORS["line"], radius=30)
+    draw.text((80, 74), "DSpark Serving Architecture", fill=COLORS["ink"], font=font(42, True))
+    draw.text((80, 130), "Workload-aware verification and shape-aware CUDA Graph dispatch in vLLM",
+              fill=COLORS["muted"], font=font(24))
 
-    rounded(draw, (24, 24, 1576, 596), COLORS["bg"], COLORS["line"], width=2, radius=30)
-    draw.text((80, 74), "DSpark Multi-GPU Inference Acceleration", fill=COLORS["ink"], font=font(42, True))
-    draw.text(
-        (80, 126),
-        "Matched drafting, workload profiling, verification scheduling, and paired validation",
-        fill=COLORS["muted"],
-        font=font(24),
-    )
-
-    y, w, h = 220, 320, 170
+    y, w, h = 235, 320, 190
     cards = [
-        (80, "Matched DSpark", ["27B target + 1.99B draft", "hybrid attention / TP4"], COLORS["cyan"], COLORS["cyan_bg"]),
-        (450, "Performance Trace", ["GDN capacity / queueing", "CUDA Graph padding"], COLORS["green"], COLORS["green_bg"]),
-        (820, "vLLM Scheduling", ["active-batch verify budget", "query / request graph bins"], COLORS["orange"], COLORS["orange_bg"]),
-        (1190, "Paired Validation", ["AR / native / optimized", "frozen policy + diagnostics"], COLORS["violet"], COLORS["violet_bg"]),
+        (80, "Draft Proposals", ["Matched ~1.99B drafter", "Full 7-token proposals"], COLORS["cyan"], COLORS["cyan_bg"], "UPSTREAM"),
+        (450, "Verification Budget", ["Active requests -> K", "Uniform verification prefix"], COLORS["orange"], COLORS["orange_bg"], "LOCAL ADAPTER"),
+        (820, "Graph Dispatch", ["query width x requests", "reuse captured shapes"], COLORS["violet"], COLORS["violet_bg"], "LOCAL ADAPTER"),
+        (1190, "Target Verification", ["Qwen3.8-27B / TP4", "native rejection + GDN"], COLORS["green"], COLORS["green_bg"], "UPSTREAM"),
     ]
-    for x, title, lines, color, fill in cards:
+    for x, title, lines, color, fill, ownership in cards:
+        draw.text((x + 28, 198), ownership, fill=color, font=font(18, True))
         draw_card(draw, x, y, w, h, title, lines, color, fill)
-
     for sx in [400, 770, 1140]:
         arrow(draw, (sx, y + h // 2), (sx + 38, y + h // 2))
 
-    metrics = [
-        ("Metrics", "TTFT / TPOT / output tokens/s"),
-        ("Stack", "Qwen3.8 + vLLM + 4 x A30"),
-        ("Evidence", "raw records + SHA-256"),
+    draw.line([(1350, 425), (1350, 478), (240, 478), (240, 425)], fill=COLORS["muted"], width=3)
+    draw.polygon([(240, 425), (231, 441), (249, 441)], fill=COLORS["muted"])
+    centered_text(draw, (370, 492, 1240, 529), "Accepted tokens -> native state update -> next draft round",
+                  COLORS["muted"], font(21))
+
+    footer = [
+        ("Draft", "fixed 7-token block"),
+        ("Target", "query width = K + 1"),
+        ("Runtime", "vLLM 0.29 / 4 x A30 / TP4"),
     ]
-    for i, (title, body) in enumerate(metrics):
+    for i, (title, value) in enumerate(footer):
         x = 80 + i * 500
-        rounded(draw, (x, 470, x + 430, 532), COLORS["card"], COLORS["line"], width=2, radius=18)
+        rounded(draw, (x, 580, x + 430, 642), COLORS["card"], COLORS["line"], radius=18)
         title_text = f"{title}: "
         title_font = font(22, True)
-        body_font = fitted_font(draw, body, 430 - 48 - draw.textlength(title_text, font=title_font) - 8, 20)
-        draw.text((x + 24, 488), title_text, fill=COLORS["ink"], font=title_font)
-        title_width = draw.textbbox((0, 0), title_text, font=title_font)[2]
-        draw.text((x + 24 + title_width + 8, 488), body, fill=COLORS["muted"], font=body_font)
-
+        title_width = draw.textlength(title_text, font=title_font)
+        value_font = fitted_font(draw, value, 430 - 48 - title_width - 8, 20)
+        draw.text((x + 24, 598), title_text, fill=COLORS["ink"], font=title_font)
+        draw.text((x + 24 + title_width + 8, 598), value, fill=COLORS["muted"], font=value_font)
     img.save(ROOT / "overview.png")
 
 
