@@ -1,10 +1,24 @@
-# DSpark 多卡大模型推理加速
+# DSpark Speculative Decoding Serving Benchmark
+
+<p align="center">
+  <img src="assets/overview.png" alt="DSpark 多卡推理加速：匹配草稿接入、性能分析、调度优化与配对验证" width="920">
+</p>
+
+<p align="center">
+  <b>基于 DSpark 的多卡大模型推理加速与 vLLM 调度优化</b>
+</p>
+
+<p align="center">
+  <a href="#加速结果">加速结果</a> ·
+  <a href="#核心实现">核心实现</a> ·
+  <a href="#快速开始">快速开始</a> ·
+  <a href="benchmark/qwen38_multigpu/README.md">复现指南</a> ·
+  <a href="#实验与文档">实验报告</a>
+</p>
 
 基于 vLLM 接入 DSpark 投机解码，研究草稿接受收益如何转化为真实服务加速，并针对高并发下的验证与调度开销实现框架优化。
 
 核心实验面向包含 **Gated DeltaNet（GDN）** 的混合注意力模型，在 **4×NVIDIA A30、TP4** 上部署 **Qwen3.8-27B BF16 + 匹配的 DSpark 草稿模型**：低并发生成吞吐达到自回归基线的 **2.43×**；通过统一验证预算与 CUDA Graph 分档，在并发 4 / 16 下较原始 DSpark 策略再提升 **6.3% / 7.8%**。
-
-[快速开始](#快速开始) · [实现代码](benchmark/qwen38_multigpu) · [完整复现指南](benchmark/qwen38_multigpu/README.md) · [实验报告](#实验与文档)
 
 ## 项目目标
 
@@ -24,6 +38,10 @@
 
 目标模型 Qwen3.8-27B，匹配草稿约 **1.99B 参数**。实验使用 vLLM **0.29.0**、4×A30 TP4、约 **2K 输入 / 256 实际输出 token**，每卡缓存预算 **4.5 GiB**；冻结同一组公开 ShareGPT 负载，进行五轮配对测试。
 
+<p align="center">
+  <img src="assets/qwen38_speedup.png" alt="Qwen3.8 DSpark：并发 1/4/16 吞吐为自回归的 2.433/1.688/0.898 倍，TPOT 降低 63.9%/55.9%/27.3%" width="920">
+</p>
+
 | 请求并发 | 原生 DSpark / 自回归吞吐 | 客户端 TPOT 降幅 |
 | ---: | ---: | ---: |
 | 1 | **2.433×** | **63.9%** |
@@ -33,6 +51,10 @@
 低并发下，减少目标模型串行执行轮次带来明显加速；并发 16 时，接受长度更高，整体吞吐却低于自回归，说明接受率之外的系统开销需要单独分析。
 
 ### 调度与图捕获优化增量
+
+<p align="center">
+  <img src="assets/qwen38_optimization.png" alt="CUDA Graph padding 比 1.41→1.09；预算与图分档在并发 4/16 下较原始策略提升吞吐 6.3%/7.8%，并发 16 直接 AR 对照为 0.995 倍" width="920">
+</p>
 
 | 对比 | 并发 | 五轮配对吞吐变化 |
 | --- | ---: | ---: |
@@ -49,6 +71,9 @@
 
 ## 核心实现
 
+<details>
+<summary>投机解码执行路径</summary>
+
 ```mermaid
 flowchart LR
     A[OpenAI-compatible 请求] --> B[DSpark 草稿生成 7-token block]
@@ -58,6 +83,8 @@ flowchart LR
     E --> F[状态更新与流式输出]
     F --> B
 ```
+
+</details>
 
 ### 统一验证预算
 
@@ -126,6 +153,12 @@ python benchmark/qwen38_multigpu/summarize.py outputs/qwen38-native.json
 
 仓库从算法接受长度、服务端加速到框架优化形成一条验证链。下表按实验问题组织；各模型、草稿、精度与运行时的结果分别记录。
 
+<p align="center">
+  <img src="assets/speedup_summary.png" alt="Qwen3 EAGLE3 服务评测：8B 单卡、32B BF16 TP8、32B INT4 TP4 的低并发收益" width="920">
+</p>
+
+上图展示 **Qwen3 / EAGLE3** 在并发 1 下的单独评测，用于比较 TP 和量化配置的收益边界；Qwen3.8 / DSpark 的主实验结果见上方。
+
 | 实验 | 覆盖与用途 | 文档 |
 | --- | --- | --- |
 | 混合注意力模型多卡加速 | Qwen3.8-27B BF16 + 匹配 DSpark，4×A30 TP4；接入、验证预算和图捕获优化 | [实验与消融](reports/qwen38_dspark_tp4_20261003.md) / [直接对照与诊断](reports/qwen38_dspark_closure_20261003.md) |
@@ -162,3 +195,15 @@ results/
 reports/                   # 算法复现、服务评测、消融与诊断报告
 scripts/                   # DeepSpec 与 Qwen3 服务实验启动脚本
 ```
+
+<details>
+<summary>重新生成 README 图表</summary>
+
+图表沿用统一的卡片与配色风格，性能数值直接读取仓库中的 JSON / CSV 结果。
+
+```bash
+python3 -m pip install -r assets/requirements.txt
+python3 assets/generate_readme_figures.py
+```
+
+</details>
